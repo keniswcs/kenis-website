@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# kenis-website
 
-## Getting Started
+Marketing site for **[keniswcs.com](https://keniswcs.com)** — KENIS WCS Integrated Solutions.
 
-First, run the development server:
+Repository: [github.com/mathukureddy/kenis-website](https://github.com/mathukureddy/kenis-website) (private)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Integration & Orchestration Platform between WMS and WCS, floor operations, implementation, and AI-powered recovery.
+
+## Stack
+
+| Layer | Technology |
+| --- | --- |
+| Framework | [Next.js 16](https://nextjs.org/) (App Router) |
+| UI | React 19 + TypeScript |
+| Styling | Tailwind CSS 4 |
+| Motion | Framer Motion |
+| Fonts | Syne + IBM Plex Sans (Google Fonts) |
+| Hosting target | GoDaddy (static export → FTP / File Manager) |
+
+## Project structure
+
+```
+kenis-website/
+├── docs/                     # Product source briefs
+├── public/                   # Static assets (logo, robots.txt, sitemap.xml)
+├── src/
+│   ├── app/                  # One folder per page (App Router)
+│   │   ├── page.tsx          # Home: slideshow + overview
+│   │   ├── capabilities/     # /capabilities
+│   │   ├── platform/         # /platform
+│   │   ├── deployment/       # /deployment
+│   │   ├── ai-operations/    # /ai-operations
+│   │   ├── expertise/        # /expertise
+│   │   └── contact/          # /contact
+│   ├── components/           # Header, footer, slideshow, shared page pieces
+│   ├── content/              # Editable copy, one file per page
+│   └── lib/                  # Shared utilities (future)
+├── next.config.ts            # Static export configured
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+git clone https://github.com/mathukureddy/kenis-website.git
+cd kenis-website
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Edit content
 
-To learn more about Next.js, take a look at the following resources:
+All wording lives in `src/content/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| File | What it controls |
+| --- | --- |
+| `site.ts` | Company name, menu, contact email, home page, and the slideshow (`hero.slides`) |
+| `capabilities.ts` | Capabilities page |
+| `platform.ts` | Integration & Orchestration Platform page |
+| `deployment.ts` | Deployment page |
+| `ai-operations.ts` | AI Operations page |
+| `expertise.ts` | Expertise page |
+| `contact.ts` | Contact page and form topics |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you add a new page, also add it to the menu in `site.ts` and to `public/sitemap.xml`.
 
-## Deploy on Vercel
+Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Production build (GoDaddy)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+```
+
+Output lands in `out/`. Upload the **contents** of `out/` to your GoDaddy web root (`public_html` or the domain folder).
+
+See [DEPLOY-GODADDY.md](./DEPLOY-GODADDY.md) for step-by-step hosting setup.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Local dev server |
+| `npm run build` | Static export to `out/` |
+| `npm run lint` | ESLint |
+| `npm run start` | Not used for static GoDaddy hosting |
