@@ -217,6 +217,7 @@ export function Hero() {
               width={512}
               height={512}
               preload
+              loading="eager"
               className="relative h-full w-full rounded-full shadow-[0_0_60px_-10px_rgba(80,160,255,0.45)] ring-1 ring-steel-bright/30"
             />
           </div>
