@@ -74,6 +74,7 @@ export const platform = {
       "API gateway & system adapters",
       "Event-driven messaging",
       "Store-and-forward with retries",
+      "Active/passive disaster recovery",
       "Duplicate-safe message processing",
       "Audit & end-to-end traceability",
     ],
@@ -141,6 +142,7 @@ export const platform = {
     "Coordinated transactions across allocation, reservation, execution, and shipment",
     "Separate command and read models for fast dashboards",
     "Multi-warehouse and multi-WCS support",
+    "Active/passive disaster recovery across two regions for cloud and hybrid deployments",
     "Equipment abstraction, so new automation plugs in without rework",
   ],
   outcomes: [

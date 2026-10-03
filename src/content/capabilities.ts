@@ -131,6 +131,7 @@ export const capabilities = {
         "KENIS-managed cloud hosting",
         "On-premises or private cloud deployment",
         "Hybrid edge-plus-cloud architectures",
+        "Active/passive disaster recovery across two regions",
         "Security guardrails in every deployment",
       ],
       outcome: "A deployment model that fits your IT and security policies.",

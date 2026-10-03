@@ -12,6 +12,7 @@ export const deployment = {
         "Fully managed hosting and monitoring",
         "Upgrades and patches handled by KENIS",
         "Encrypted site-to-cloud connectivity",
+        "Active/passive disaster recovery across two regions",
         "Fastest path to go-live",
       ],
     },
@@ -33,6 +34,7 @@ export const deployment = {
         "Low-latency control at the site edge",
         "Central dashboards across facilities",
         "Store-and-forward if connectivity drops",
+        "Cloud tier protected by two-region disaster recovery",
         "Scale sites without re-architecture",
       ],
     },
@@ -54,12 +56,81 @@ export const deployment = {
         values: ["Managed by KENIS", "Scheduled through your change process", "Coordinated between teams"],
       },
       {
+        label: "Disaster recovery",
+        values: [
+          "Active/passive across two cloud regions",
+          "Aligned with your DR plan and secondary site",
+          "Cloud tier active/passive across two regions; site edge keeps running",
+        ],
+      },
+      {
         label: "Best for",
         values: [
           "Fast start and lean IT teams",
           "Strict data residency and security policies",
           "Multi-site operations needing low-latency control",
         ],
+      },
+    ],
+  },
+  disasterRecovery: {
+    title: "Active/passive across two regions",
+    body: "For KENIS Cloud and Hybrid deployments, the platform runs active in a primary cloud region with a passive standby in a second, geographically separate region. If the primary region goes down, operations fail over to the standby so work keeps flowing between WMS and the floor.",
+    appliesTo: ["KENIS Cloud", "Hybrid (cloud tier)"],
+    regions: [
+      {
+        role: "Active",
+        name: "Primary region",
+        items: [
+          "Serves all live traffic",
+          "Processes WMS, WCS, and equipment messages",
+          "Replicates data to the standby region continuously",
+        ],
+      },
+      {
+        role: "Passive",
+        name: "Secondary region",
+        items: [
+          "Warm standby, kept in sync",
+          "Same configuration and security controls",
+          "Takes over live traffic on failover",
+        ],
+      },
+    ],
+    features: [
+      {
+        name: "Continuous replication",
+        text: "Messages, configuration, and platform state replicate to the standby region so it is ready to take over.",
+      },
+      {
+        name: "Health monitoring & failover",
+        text: "Health checks detect a regional outage and trigger a controlled failover, automatically or with operator approval.",
+      },
+      {
+        name: "Message durability",
+        text: "Durable queues and store-and-forward at the site hold messages during failover and replay them in order once the standby is active.",
+      },
+      {
+        name: "Agreed RTO and RPO",
+        text: "Recovery time and recovery point objectives are agreed with you and built into the design.",
+      },
+      {
+        name: "Regular DR drills",
+        text: "Scheduled tests verify failover and failback, with results shared with your team.",
+      },
+      {
+        name: "Planned failback",
+        text: "Return to the primary region in a planned window once it is healthy again.",
+      },
+    ],
+    notes: [
+      {
+        name: "Hybrid",
+        text: "Real-time equipment control stays at the site edge, so the floor keeps running during a cloud failover. Store-and-forward holds messages until the standby region is active.",
+      },
+      {
+        name: "Client Network",
+        text: "KENIS designs recovery to fit your own DR plan, data centers, and secondary site.",
       },
     ],
   },
@@ -91,7 +162,7 @@ export const deployment = {
       },
       {
         name: "Validate",
-        text: "Run security, performance, integration, and user acceptance testing.",
+        text: "Run security, performance, integration, failover, and user acceptance testing.",
       },
       {
         name: "Go live & operate",
