@@ -5,7 +5,7 @@ export const platform = {
   description:
     "The KENIS Integration & Orchestration Platform connects WMS, WCS, and warehouse equipment, orchestrating workflows, exceptions, inventory sync, and equipment coordination.",
   layers: [
-    { name: "Enterprise", items: ["ERP", "OMS", "TMS", "MES", "BI"] },
+    { name: "Enterprise", items: ["WMS", "ERP", "OMS", "TMS", "MES", "BI"] },
     {
       name: "KENIS Platform",
       items: [
