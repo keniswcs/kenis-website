@@ -8,6 +8,7 @@ export const contact = {
     "Integration & Orchestration Platform",
     "WCS implementation & integration",
     "AI-powered operations",
+    "Reporting & analytics",
     "Deployment options",
     "Testing, go-live & HyperCare",
     "Project management",

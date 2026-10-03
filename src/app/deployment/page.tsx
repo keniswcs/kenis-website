@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function DeploymentPage() {
-  const { comparison } = deployment;
+  const { comparison, disasterRecovery: dr } = deployment;
 
   return (
     <>
@@ -93,7 +93,120 @@ export default function DeploymentPage() {
         </div>
       </section>
 
-      <section className="bg-ink-raised py-20 sm:py-24">
+      <section id="disaster-recovery" className="scroll-mt-20 bg-ink-raised py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Disaster recovery"
+              title={dr.title}
+              body={dr.body}
+            />
+            <ul className="mt-6 flex flex-wrap gap-2" aria-label="Applies to">
+              {dr.appliesTo.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-sm border border-signal/50 bg-signal/10 px-3 py-1.5 text-sm text-foam"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal
+            delay={0.08}
+            className="mt-12 grid items-stretch gap-4 lg:grid-cols-[1fr_minmax(10rem,auto)_1fr] lg:gap-0"
+          >
+            {dr.regions.map((region, i) => {
+              const active = region.role === "Active";
+              return (
+                <div key={region.name} className={i === 1 ? "order-3" : "order-1"}>
+                  <div
+                    className={`h-full rounded-sm border px-6 py-7 ${
+                      active ? "border-signal/50 bg-signal/10" : "border-steel/40 bg-ink/60"
+                    }`}
+                  >
+                    <span
+                      className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-xs font-medium tracking-[0.14em] uppercase ${
+                        active
+                          ? "border-emerald-400/50 text-emerald-400"
+                          : "border-steel-bright/50 text-steel-bright"
+                      }`}
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${
+                          active ? "animate-pulse-soft bg-emerald-400" : "bg-steel-bright"
+                        }`}
+                        aria-hidden
+                      />
+                      {region.role}
+                    </span>
+                    <h3 className="mt-4 font-display text-xl font-semibold text-foam">
+                      {region.name}
+                    </h3>
+                    <ul className="mt-4 space-y-2.5">
+                      {region.items.map((item) => (
+                        <li key={item} className="flex gap-3 text-sm text-mist">
+                          <span className="mt-2 h-px w-4 shrink-0 bg-signal" aria-hidden />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
+            <div className="order-2 flex flex-col items-center justify-center gap-2 py-2 text-center lg:px-4">
+              <span className="text-xs font-medium tracking-[0.14em] text-steel-bright uppercase">
+                Replication
+              </span>
+              <svg viewBox="0 0 120 12" className="hidden h-3 w-full lg:block" aria-hidden>
+                <line
+                  x1="0"
+                  y1="6"
+                  x2="112"
+                  y2="6"
+                  className="animate-dash stroke-signal motion-reduce:animate-none"
+                  strokeWidth="2"
+                  strokeDasharray="6 4"
+                />
+                <path d="M110 1 L118 6 L110 11" className="fill-none stroke-signal" strokeWidth="2" />
+              </svg>
+              <span className="text-signal lg:hidden" aria-hidden>
+                ↓
+              </span>
+              <span className="text-xs text-mist">Failover on outage</span>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {dr.features.map((feature, i) => (
+              <Reveal
+                key={feature.name}
+                delay={(i % 3) * 0.06}
+                className="border-t border-steel/35 pt-5"
+              >
+                <h3 className="font-display text-base font-semibold text-foam">{feature.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{feature.text}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2">
+            {dr.notes.map((note) => (
+              <Reveal
+                key={note.name}
+                className="rounded-sm border border-steel/35 bg-ink/60 px-6 py-5"
+              >
+                <p className="font-display text-base font-semibold text-foam">{note.name}</p>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{note.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="rounded-sm border border-signal/40 bg-signal/[0.07] px-6 py-8 sm:px-10 sm:py-10">
             <div className="flex items-center gap-3">
@@ -126,7 +239,7 @@ export default function DeploymentPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 sm:py-24">
+      <section className="bg-ink-raised py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <SectionHeading eyebrow="Process" title={deployment.process.title} />

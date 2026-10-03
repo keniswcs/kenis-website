@@ -10,13 +10,15 @@ export const site = {
     alt: "KENIS WCS Integrated Solutions logo",
   },
   description:
-    "End-to-end Warehouse Control System implementation, an Integration & Orchestration Platform (middleware) between WMS and WCS, and AI-powered floor operations for warehouses and distribution centers.",
+    "End-to-end Warehouse Control System implementation, an Integration & Orchestration Platform (middleware) between WMS and WCS, AI-powered floor operations, and real-time reporting and analytics for warehouses and distribution centers.",
   email: "info@keniswcs.com",
+  phone: { display: "(901) 651-1909", tel: "+19016511909" },
   nav: [
     { label: "Capabilities", href: "/capabilities" },
     { label: "Platform", href: "/platform" },
     { label: "Deployment", href: "/deployment" },
     { label: "AI Operations", href: "/ai-operations" },
+    { label: "Analytics", href: "/analytics" },
     { label: "Expertise", href: "/expertise" },
   ],
   contactCta: { label: "Contact us", href: "/contact" },
@@ -27,7 +29,6 @@ export const site = {
     href: "/contact",
   },
   hero: {
-    primaryCta: { label: "Talk with us", href: "/contact" },
     slides: [
       {
         eyebrow: "KENIS WCS Integrated Solutions",
@@ -76,6 +77,18 @@ export const site = {
         ],
         flow: ["Detect", "Diagnose", "Recover"],
         cta: { label: "Explore AI operations", href: "/ai-operations" },
+      },
+      {
+        eyebrow: "Reporting & Analytics",
+        title: "Real-time UCH and RCH, so every shift knows where it stands.",
+        body: "Compare actual cases per hour with the rate required to hit the plan, by hour, zone, and equipment, and act before cutoffs slip.",
+        highlights: [
+          "Live UCH vs RCH",
+          "Zone & equipment drill-down",
+          "Rate alerts & shift reports",
+        ],
+        flow: ["WMS plan", "WCS actuals", "KENIS Analytics"],
+        cta: { label: "Explore analytics", href: "/analytics" },
       },
       {
         eyebrow: "Flexible Deployment",
@@ -151,6 +164,11 @@ export const site = {
           title: "AI Operations",
           body: "Detect, diagnose, and recover from interface and operational failures faster.",
           href: "/ai-operations",
+        },
+        {
+          title: "Reporting & Analytics",
+          body: "Real-time UCH against RCH by hour, zone, and equipment, with alerts and shift reports.",
+          href: "/analytics",
         },
         {
           title: "Expertise",

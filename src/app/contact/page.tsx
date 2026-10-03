@@ -25,6 +25,14 @@ export default function ContactPage() {
               {site.email}
             </a>
 
+            <p className="mt-8 text-xs tracking-[0.2em] text-steel-bright uppercase">Phone</p>
+            <a
+              href={`tel:${site.phone.tel}`}
+              className="mt-2 inline-block font-display text-xl font-semibold text-signal underline-offset-4 hover:underline"
+            >
+              {site.phone.display}
+            </a>
+
             <p className="mt-12 text-xs tracking-[0.2em] text-steel-bright uppercase">
               What happens next
             </p>

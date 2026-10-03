@@ -30,6 +30,7 @@ kenis-website/
 │   │   ├── platform/         # /platform
 │   │   ├── deployment/       # /deployment
 │   │   ├── ai-operations/    # /ai-operations
+│   │   ├── analytics/        # /analytics (live UCH/RCH sample dashboard)
 │   │   ├── expertise/        # /expertise
 │   │   └── contact/          # /contact
 │   ├── components/           # Header, footer, slideshow, shared page pieces
@@ -61,6 +62,7 @@ All wording lives in `src/content/`:
 | `platform.ts` | Integration & Orchestration Platform page |
 | `deployment.ts` | Deployment page |
 | `ai-operations.ts` | AI Operations page |
+| `analytics.ts` | Reporting & Analytics page, UCH/RCH definitions, and the sample dashboard data |
 | `expertise.ts` | Expertise page |
 | `contact.ts` | Contact page and form topics |
 

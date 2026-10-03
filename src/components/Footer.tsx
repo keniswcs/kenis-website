@@ -47,6 +47,11 @@ export function Footer() {
               </a>
             </li>
             <li>
+              <a href={`tel:${site.phone.tel}`} className="text-mist hover:text-foam">
+                {site.phone.display}
+              </a>
+            </li>
+            <li>
               <Link href={site.contactCta.href} className="text-signal hover:text-signal-bright">
                 {site.contactCta.label} →
               </Link>

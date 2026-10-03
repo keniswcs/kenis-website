@@ -121,14 +121,8 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
-              href={site.hero.primaryCta.href}
-              className="rounded-sm bg-signal px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-signal-bright"
-            >
-              {site.hero.primaryCta.label}
-            </Link>
-            <Link
               href={slide.cta.href}
-              className="rounded-sm border border-steel/50 px-6 py-3 text-sm font-medium text-foam transition-colors hover:border-steel-bright hover:bg-white/5"
+              className="rounded-sm bg-signal px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-signal-bright"
             >
               {slide.cta.label} →
             </Link>
