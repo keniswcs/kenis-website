@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/metadata";
 import { deployment } from "@/content/deployment";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 
-export const metadata: Metadata = {
-  title: "Deployment Options",
+export const metadata: Metadata = pageMetadata({
+  ...seo.pages.deployment,
   description: deployment.description,
-};
+});
 
 export default function DeploymentPage() {
   const { comparison, disasterRecovery: dr } = deployment;

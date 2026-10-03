@@ -57,7 +57,7 @@ Last verified: October 2, 2026.
 | TXT | `@` | `v=spf1 include:secureserver.net -all` (SPF) |
 | CNAME | `autodiscover` | `autodiscover.outlook.com` |
 
-GoDaddy may also list other email-related records (for example DKIM or `_domainconnect`). Leave those as they are.
+GoDaddy may also list other email-related records (for example DKIM or `_domainconnect`). Leave those as they are. A TXT record starting with `google-site-verification=` proves ownership to Google Search Console (section 8); keep it too.
 
 ## 4. Releasing a change (every time)
 
@@ -150,7 +150,32 @@ Resolve-DnsName keniswcs.com -Type MX -Server 8.8.8.8         # keniswcs-com.mai
 | `npm ci` fails with `EPERM` on Windows | The dev server is running and locking files. Stop it and rerun. |
 | Contact form fails or emails stop | Netlify > **Forms**: form detection must be on and a form named `contact` must exist; check the email notification for info@keniswcs.com. See [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md), Part 6. |
 
-## 8. Access and ownership
+## 8. Search engines (Google Search Console)
+
+What the site provides for search engines:
+
+- `public/sitemap.xml` lists every page (update `<lastmod>` when a page changes; add new pages here).
+- `public/robots.txt` allows all crawlers and points to the sitemap.
+- Each page has a title, description, keywords, canonical URL, and social preview tags. Edit them in `src/content/seo.ts` (titles and keywords) and the page's content file (description).
+- The layout adds Organization and WebSite structured data (JSON-LD) with name, logo, email, and phone.
+
+Google does not use the keywords tag for ranking; titles, descriptions, and page text matter most. The keywords help Bing and keep the target terms documented.
+
+**Google Search Console setup (once):**
+
+1. Go to [search.google.com/search-console](https://search.google.com/search-console) and sign in with the Google account that should own the site.
+2. **Add property > Domain**, enter `keniswcs.com` (covers www, the apex, http, and https).
+3. Verify ownership with the DNS TXT record Google shows (`google-site-verification=...`):
+   - Easiest: choose **GoDaddy** in Google's provider list and click **Start verification**; sign in to GoDaddy and approve, and the record is added for you.
+   - Manual: GoDaddy > keniswcs.com > **DNS** > **Add New Record** > Type **TXT**, Name `@`, Value = the full `google-site-verification=...` string, TTL 1 hour. Then click **Verify** in Google (can take a few minutes to an hour).
+   - This adds a new TXT record. Do not edit or delete the existing Microsoft 365 TXT records.
+4. **Sitemaps** > enter `sitemap.xml` > **Submit** (full address `https://www.keniswcs.com/sitemap.xml`).
+5. Optional, faster first crawl: **URL inspection** > `https://www.keniswcs.com/` > **Request indexing**. Repeat for key pages.
+6. Bing: at [bing.com/webmasters](https://www.bing.com/webmasters), **Import from Google Search Console** to copy the site and sitemap.
+
+New sites usually appear in Google within a few days to a few weeks. Check **Pages** (indexing) and **Performance** (search queries) in Search Console.
+
+## 9. Access and ownership
 
 | System | Used for | Access |
 | --- | --- | --- |
@@ -161,7 +186,7 @@ Resolve-DnsName keniswcs.com -Type MX -Server 8.8.8.8         # keniswcs-com.mai
 - Keep **domain auto-renew** on in GoDaddy; if the domain expires, the site and email both stop.
 - Never share passwords in chat, documents, or the repository. Add team members through each service's own team or collaborator settings.
 
-## 9. Related documents
+## 10. Related documents
 
 - [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md): step-by-step Netlify and GoDaddy DNS setup.
 - [DEPLOY-GODADDY.md](./DEPLOY-GODADDY.md): alternative hosting on GoDaddy cPanel Web Hosting (manual zip upload), if ever needed.

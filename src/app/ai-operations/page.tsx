@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/metadata";
 import { aiOperations } from "@/content/ai-operations";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 
-export const metadata: Metadata = {
-  title: "AI-Powered Operations",
+export const metadata: Metadata = pageMetadata({
+  ...seo.pages.aiOperations,
   description: aiOperations.description,
-};
+});
 
 export default function AiOperationsPage() {
   return (

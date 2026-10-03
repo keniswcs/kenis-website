@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/metadata";
 import { platform } from "@/content/platform";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -6,10 +8,10 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 import { FeatureToggles } from "@/components/FeatureToggles";
 
-export const metadata: Metadata = {
-  title: "Integration & Orchestration Platform",
+export const metadata: Metadata = pageMetadata({
+  ...seo.pages.platform,
   description: platform.description,
-};
+});
 
 export default function PlatformPage() {
   const { errorHandling, reliability, product } = platform;

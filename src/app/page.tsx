@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/metadata";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
+
+export const metadata: Metadata = pageMetadata({
+  ...seo.pages.home,
+  description: site.description,
+});
 
 export default function Home() {
   const { explore, why } = site.home;

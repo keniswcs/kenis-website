@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { capabilities } from "@/content/capabilities";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
 
-export const metadata: Metadata = {
-  title: "Capabilities",
+export const metadata: Metadata = pageMetadata({
+  ...seo.pages.capabilities,
   description: capabilities.description,
-};
+});
 
 export default function CapabilitiesPage() {
   return (
