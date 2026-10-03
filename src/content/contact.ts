@@ -14,6 +14,11 @@ export const contact = {
     "Project management",
     "Something else",
   ],
+  form: {
+    successTitle: "Thank you, your message has been sent",
+    successBody: "A KENIS specialist will contact you by email or phone soon.",
+    errorBody: "Your message could not be sent. Please try again, or contact us directly:",
+  },
   nextSteps: [
     {
       name: "We review your request",
