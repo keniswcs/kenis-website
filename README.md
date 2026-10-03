@@ -70,15 +70,11 @@ If you add a new page, also add it to the menu in `site.ts` and to `public/sitem
 
 Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`.
 
-## Production build (GoDaddy)
+## Hosting
 
-```bash
-npm run build
-```
+Production is **https://www.keniswcs.com**, hosted on **Netlify** with the domain registered at GoDaddy. Merging `develop` into `main` publishes the site automatically. Setup steps: [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md).
 
-Output lands in `out/`. Upload the **contents** of `out/` to your GoDaddy web root (`public_html` or the domain folder).
-
-See [DEPLOY-GODADDY.md](./DEPLOY-GODADDY.md) for step-by-step hosting setup.
+`npm run build` exports the static site to `out/`. To host on GoDaddy cPanel instead, upload the contents of `out/` as described in [DEPLOY-GODADDY.md](./DEPLOY-GODADDY.md).
 
 ## Scripts
 
@@ -87,4 +83,4 @@ See [DEPLOY-GODADDY.md](./DEPLOY-GODADDY.md) for step-by-step hosting setup.
 | `npm run dev` | Local dev server |
 | `npm run build` | Static export to `out/` |
 | `npm run lint` | ESLint |
-| `npm run start` | Not used for static GoDaddy hosting |
+| `npm run start` | Not used (the site is a static export) |
