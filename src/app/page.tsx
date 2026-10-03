@@ -17,13 +17,9 @@ export default function Home() {
           <Reveal>
             <SectionHeading eyebrow={explore.eyebrow} title={explore.title} />
           </Reveal>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {explore.cards.map((card, i) => (
-              <Reveal
-                key={card.href}
-                delay={i * 0.06}
-                className={i < 3 ? "lg:col-span-2" : "lg:col-span-3"}
-              >
+              <Reveal key={card.href} delay={i * 0.06}>
                 <Link
                   href={card.href}
                   className="group flex h-full flex-col rounded-sm border border-steel/35 bg-ink/60 px-6 py-7 transition-colors hover:border-signal/60 hover:bg-signal/[0.06]"

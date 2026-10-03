@@ -10,16 +10,16 @@ export type Service = {
 export const capabilities = {
   title: "One partner from concept to production",
   intro:
-    "KENIS covers the full warehouse automation lifecycle: planning the program, implementing and integrating WCS, connecting systems through our Integration & Orchestration Platform, testing, go-live, and HyperCare, plus AI tools that keep operations running after launch.",
+    "KENIS covers the full warehouse automation lifecycle: planning the program, implementing and integrating WCS, connecting systems through our Integration & Orchestration Platform, testing, go-live, and HyperCare, plus AI tools and real-time analytics that keep operations running after launch.",
   description:
-    "Project management, WCS implementation and integration, the KENIS Integration & Orchestration Platform, AI operations, QA and testing, go-live and HyperCare, and flexible deployment.",
+    "Project management, WCS implementation and integration, the KENIS Integration & Orchestration Platform, AI operations, reporting and analytics, QA and testing, go-live and HyperCare, and flexible deployment.",
   lifecycle: [
     { step: "Plan", text: "Scope, schedule, risks, and vendors" },
     { step: "Integrate", text: "WMS, WCS, and equipment connected" },
     { step: "Automate", text: "Workflows, rules, and exception handling" },
     { step: "Test", text: "Functional testing through UAT" },
     { step: "Launch", text: "Cutover and go-live support" },
-    { step: "Optimize", text: "HyperCare, AI insights, and tuning" },
+    { step: "Optimize", text: "HyperCare, analytics, AI insights, and tuning" },
   ],
   services: [
     {
@@ -79,6 +79,21 @@ export const capabilities = {
       ],
       outcome: "Faster, data-driven problem resolution instead of reactive firefighting.",
       link: { label: "Explore AI operations", href: "/ai-operations" },
+    },
+    {
+      id: "reporting-analytics",
+      title: "Reporting & Analytics",
+      summary:
+        "Real-time dashboards for daily floor operations that compare UCH, the actual units/cases per hour, with RCH, the required cases per hour to finish the plan on time.",
+      activities: [
+        "Live UCH vs RCH by hour, shift, zone, and equipment",
+        "Attainment and projected finish against shift end and carrier cutoffs",
+        "Rate alerts when UCH falls below RCH",
+        "Automatic shift and daily performance reports",
+        "Trends across shifts and sites, with export to your BI tools",
+      ],
+      outcome: "Supervisors see where the shift stands and act before cutoffs slip.",
+      link: { label: "Explore analytics", href: "/analytics" },
     },
     {
       id: "quality-assurance",
