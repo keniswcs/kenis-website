@@ -18,7 +18,7 @@ const body = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://${site.domain}`),
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} | ${site.tagline}`,
     template: `%s | ${site.name}`,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: `https://${site.domain}`,
+    url: site.url,
     siteName: site.name,
     title: `${site.name} | ${site.tagline}`,
     description: site.description,

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://keniswcs.com/sitemap.xml
+Sitemap: https://www.keniswcs.com/sitemap.xml
