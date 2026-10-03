@@ -58,6 +58,31 @@ nslookup www.keniswcs.com    # should show keniswcs.netlify.app
 - [ ] Every menu page opens directly, for example `https://www.keniswcs.com/analytics/`
 - [ ] A made-up address shows the KENIS 404 page
 - [ ] Email to info@keniswcs.com still arrives
+- [ ] A test message from the Contact page arrives at info@keniswcs.com (Part 6)
+
+## Part 6 - Contact form (Netlify Forms, once)
+
+The Contact page form sends messages through **Netlify Forms**; visitors do not need an email app. Netlify stores each submission and emails it to info@keniswcs.com. The visitor's email address is set as **Reply-To**, so pressing Reply in Outlook answers the visitor directly. (The "From" cannot be the visitor's address; mail providers reject forged senders.)
+
+How it is wired:
+
+- `public/__forms.html` is a hidden copy of the form that Netlify detects at deploy time.
+- `src/components/ContactForm.tsx` posts the fields to `/__forms.html` with `form-name=contact`. Field names in both files must match.
+- Fields: name, email, phone, company, topic, message, plus `subject` (built automatically, used as the email subject) and a hidden `bot-field` spam trap.
+
+Setup:
+
+1. Netlify: **Project configuration > Forms > Enable form detection**. Then trigger a deploy (merge a change, or **Deploys > Trigger deploy > Deploy project**).
+2. After the deploy, **Forms** lists a form named **contact**.
+3. **Project configuration > Notifications > Emails and webhooks > Form submission notifications > Add notification > Email notification**:
+   - Event: **New form submission**
+   - Email to notify: `info@keniswcs.com`
+   - Form: **contact**
+4. Send a test from https://www.keniswcs.com/contact/ and confirm the email arrives (check Junk the first time and mark it "Not junk").
+
+All submissions are also kept under **Forms > contact** in Netlify. Netlify filters spam automatically; flagged messages appear under **Spam submissions** and are not emailed. Monthly submission limits depend on the Netlify plan; see **Usage**.
+
+The form only works on Netlify (production and Deploy Previews). Locally (`npm run dev`) the submission is not delivered.
 
 ## Releasing changes
 
@@ -79,3 +104,5 @@ Netlify also builds a **Deploy Preview** for each pull request, with its own tem
 | Certificate not issued | DNS must resolve to Netlify first. Then **Verify DNS configuration** and **Provision certificate** again. |
 | GoDaddy "parked" page | The old A record is still present, or DNS has not propagated yet. |
 | Email stopped working | An MX or TXT record was removed. Restore it from your email provider's settings (GoDaddy Email or Microsoft 365). |
+| Contact form shows "could not be sent" | Form detection is off, or the last deploy happened before it was enabled. Enable it (Part 6) and redeploy. |
+| Contact form says sent, but no email | Check **Forms > contact** (and **Spam submissions**) in Netlify. If the message is there, add or fix the email notification (Part 6) and check Junk in Outlook. |

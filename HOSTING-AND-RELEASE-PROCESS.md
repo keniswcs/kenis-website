@@ -36,6 +36,7 @@ Last verified: October 2, 2026.
 | Domain registrar and DNS | GoDaddy (name servers `ns11.domaincontrol.com`, `ns12.domaincontrol.com`) |
 | SSL certificate | Let's Encrypt via Netlify, covers `keniswcs.com` and `www.keniswcs.com`, renews automatically |
 | Email | Microsoft 365 through GoDaddy (info@keniswcs.com) |
+| Contact form | Netlify Forms, form `contact`; each submission is emailed to info@keniswcs.com with the visitor's email as Reply-To (setup in [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md), Part 6) |
 | Netlify sign-in | "Log in with GitHub" using the `mathukureddy` account |
 
 ## 3. DNS records in GoDaddy
@@ -103,7 +104,7 @@ After each release, in a private browser window:
 - [ ] Each menu page opens directly (Capabilities, Platform, Deployment, AI Operations, Analytics, Expertise, Contact)
 - [ ] A made-up address (for example `/test-404/`) shows the KENIS 404 page
 - [ ] Slideshow, analytics dashboard, and platform module switches work
-- [ ] Phone link and contact form (opens email to info@keniswcs.com) work
+- [ ] Phone link works, and a test message from the contact form arrives at info@keniswcs.com
 
 **Command-line checks (PowerShell):**
 
@@ -147,6 +148,7 @@ Resolve-DnsName keniswcs.com -Type MX -Server 8.8.8.8         # keniswcs-com.mai
 | Netlify build fails | Reproduce locally with `npm ci` and `npm run build`, fix on `develop`, and merge again. The live site keeps the last good version until a build succeeds. |
 | Email stopped working | An email DNS record was removed or edited. Restore the records in section 3, or use GoDaddy's email setup tool for Microsoft 365. |
 | `npm ci` fails with `EPERM` on Windows | The dev server is running and locking files. Stop it and rerun. |
+| Contact form fails or emails stop | Netlify > **Forms**: form detection must be on and a form named `contact` must exist; check the email notification for info@keniswcs.com. See [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md), Part 6. |
 
 ## 8. Access and ownership
 
