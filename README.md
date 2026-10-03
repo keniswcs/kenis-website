@@ -65,8 +65,9 @@ All wording lives in `src/content/`:
 | `analytics.ts` | Reporting & Analytics page, UCH/RCH definitions, and the sample dashboard data |
 | `expertise.ts` | Expertise page |
 | `contact.ts` | Contact page and form topics |
+| `seo.ts` | Search titles and keywords for each page |
 
-If you add a new page, also add it to the menu in `site.ts` and to `public/sitemap.xml`.
+If you add a new page, also add it to the menu in `site.ts`, to `seo.ts`, and to `public/sitemap.xml`.
 
 Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`.
 

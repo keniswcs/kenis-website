@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/metadata";
 import { analytics } from "@/content/analytics";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -6,10 +8,10 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { FloorDashboard } from "@/components/FloorDashboard";
 import { CtaBand } from "@/components/CtaBand";
 
-export const metadata: Metadata = {
-  title: "Reporting & Analytics",
+export const metadata: Metadata = pageMetadata({
+  ...seo.pages.analytics,
   description: analytics.description,
-};
+});
 
 export default function AnalyticsPage() {
   return (
