@@ -26,19 +26,12 @@ export default function ContactPage() {
             </a>
 
             <p className="mt-8 text-xs tracking-[0.2em] text-steel-bright uppercase">Phone</p>
-            <ul className="mt-2 space-y-2">
-              {site.phones.map((phone) => (
-                <li key={phone.tel} className="flex flex-wrap items-baseline gap-x-3">
-                  <a
-                    href={`tel:${phone.tel}`}
-                    className="font-display text-xl font-semibold text-signal underline-offset-4 hover:underline"
-                  >
-                    {phone.display}
-                  </a>
-                  <span className="text-sm text-mist">{phone.label}</span>
-                </li>
-              ))}
-            </ul>
+            <a
+              href={`tel:${site.phone.tel}`}
+              className="mt-2 inline-block font-display text-xl font-semibold text-signal underline-offset-4 hover:underline"
+            >
+              {site.phone.display}
+            </a>
 
             <p className="mt-12 text-xs tracking-[0.2em] text-steel-bright uppercase">
               What happens next

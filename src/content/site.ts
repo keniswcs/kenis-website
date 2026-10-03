@@ -12,10 +12,7 @@ export const site = {
   description:
     "End-to-end Warehouse Control System implementation, an Integration & Orchestration Platform (middleware) between WMS and WCS, AI-powered floor operations, and real-time reporting and analytics for warehouses and distribution centers.",
   email: "info@keniswcs.com",
-  phones: [
-    { label: "Primary", display: "(901) 651-1909", tel: "+19016511909" },
-    { label: "Secondary", display: "(847) 960-8181", tel: "+18479608181" },
-  ],
+  phone: { display: "(901) 651-1909", tel: "+19016511909" },
   nav: [
     { label: "Capabilities", href: "/capabilities" },
     { label: "Platform", href: "/platform" },
