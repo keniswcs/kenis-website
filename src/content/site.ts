@@ -2,6 +2,7 @@ export const site = {
   name: "KENIS WCS",
   legalName: "KENIS WCS Integrated Solutions",
   domain: "keniswcs.com",
+  url: "https://www.keniswcs.com",
   tagline: "Warehouse Automation. Integrated. Intelligent.",
   vision: "A future where every warehouse system works together seamlessly.",
   logo: {
