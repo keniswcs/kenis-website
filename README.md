@@ -72,7 +72,7 @@ Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, 
 
 ## Hosting
 
-Production is **https://www.keniswcs.com**, hosted on **Netlify** with the domain registered at GoDaddy. Merging `develop` into `main` publishes the site automatically. Setup steps: [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md).
+Production is **https://www.keniswcs.com**, hosted on **Netlify** with the domain registered at GoDaddy. Merging `develop` into `main` publishes the site automatically. Release process, DNS records, and troubleshooting: [HOSTING-AND-RELEASE-PROCESS.md](./HOSTING-AND-RELEASE-PROCESS.md). Setup steps: [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md).
 
 `npm run build` exports the static site to `out/`. To host on GoDaddy cPanel instead, upload the contents of `out/` as described in [DEPLOY-GODADDY.md](./DEPLOY-GODADDY.md).
 
