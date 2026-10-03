@@ -46,6 +46,14 @@ export function Footer() {
                 {site.email}
               </a>
             </li>
+            {site.phones.map((phone) => (
+              <li key={phone.tel}>
+                <a href={`tel:${phone.tel}`} className="text-mist hover:text-foam">
+                  {phone.display}
+                </a>{" "}
+                <span className="text-steel-bright">({phone.label})</span>
+              </li>
+            ))}
             <li>
               <Link href={site.contactCta.href} className="text-signal hover:text-signal-bright">
                 {site.contactCta.label} →
