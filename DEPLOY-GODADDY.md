@@ -78,7 +78,7 @@ Work happens on `develop`; production is always built from `main`.
    git pull
    ```
 
-2. **Install, check, and build:**
+2. **Install, check, and build.** Stop the dev server first (Ctrl+C in its terminal); on Windows it locks files in `node_modules` and `npm ci` fails with `EPERM`.
 
    ```powershell
    npm ci
