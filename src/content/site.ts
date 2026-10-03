@@ -29,7 +29,6 @@ export const site = {
     href: "/contact",
   },
   hero: {
-    primaryCta: { label: "Talk with us", href: "/contact" },
     slides: [
       {
         eyebrow: "KENIS WCS Integrated Solutions",
