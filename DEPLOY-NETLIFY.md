@@ -2,7 +2,7 @@
 
 Netlify builds the site from GitHub and serves it with free HTTPS. GoDaddy keeps the domain registration; you only change two DNS records there. Every merge to `main` goes live automatically.
 
-Build settings, redirects (`keniswcs.com` to `https://www.keniswcs.com`), and security headers live in `netlify.toml`, so Netlify needs no manual build configuration.
+Build settings and security headers live in `netlify.toml`, so Netlify needs no manual build configuration. The redirect from `keniswcs.com` to `https://www.keniswcs.com` comes from setting **www.keniswcs.com as the primary domain** in Netlify (Part 2).
 
 ## Part 1 - Create the Netlify site (once)
 
@@ -73,6 +73,7 @@ Netlify also builds a **Deploy Preview** for each pull request, with its own tem
 
 | Problem | Fix |
 | --- | --- |
+| "Too many redirects" or www redirects to keniswcs.com | Domain management > `www.keniswcs.com` > **Options > Set as primary domain**. Do not add domain redirects to `netlify.toml`. |
 | Build fails | Open the failed deploy log in Netlify. Run `npm ci` and `npm run build` locally to reproduce. |
 | "Awaiting External DNS" for hours | Check the GoDaddy records against Part 3 and remove duplicate A or `www` records. |
 | Certificate not issued | DNS must resolve to Netlify first. Then **Verify DNS configuration** and **Provision certificate** again. |

@@ -7,17 +7,9 @@
   # The site is a static export; Netlify's Next.js server runtime is not needed.
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-[[redirects]]
-  from = "https://keniswcs.com/*"
-  to = "https://www.keniswcs.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://keniswcs.com/*"
-  to = "https://www.keniswcs.com/:splat"
-  status = 301
-  force = true
+# keniswcs.com -> www.keniswcs.com is handled by the primary domain setting in
+# Netlify (Domain management). Adding the same redirect here causes a loop if the
+# primary domain is ever set to keniswcs.com.
 
 [[headers]]
   for = "/*"
