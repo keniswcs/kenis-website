@@ -61,6 +61,7 @@ export const capabilities = {
         "Exception handling and resolution workflows",
         "Inventory reconciliation between systems",
         "Monitoring, alerting, and audit trails",
+        "Configurable modules, auto-scaling, and tiered SLAs",
       ],
       outcome: "Protect existing technology investments while simplifying upgrades.",
       link: { label: "Explore the platform", href: "/platform" },

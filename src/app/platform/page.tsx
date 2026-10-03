@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
+import { FeatureToggles } from "@/components/FeatureToggles";
 
 export const metadata: Metadata = {
   title: "Integration & Orchestration Platform",
@@ -11,15 +12,30 @@ export const metadata: Metadata = {
 };
 
 export default function PlatformPage() {
+  const { errorHandling, reliability, product } = platform;
+
   return (
     <>
       <PageHero
         label="Integration & Orchestration Platform"
         title={platform.title}
         intro={platform.intro}
-      />
+      >
+        <ul className="mt-8 flex flex-wrap gap-2">
+          {platform.sections.map((s) => (
+            <li key={s.id}>
+              <a
+                href={`#${s.id}`}
+                className="block rounded-sm border border-steel/50 bg-ink/60 px-3 py-1.5 text-xs text-steel-bright transition-colors hover:border-signal hover:text-foam sm:text-sm"
+              >
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </PageHero>
 
-      <section className="bg-ink-raised py-20 sm:py-24">
+      <section id="architecture" className="scroll-mt-20 bg-ink-raised py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <SectionHeading
@@ -60,7 +76,7 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 sm:py-24">
+      <section id="core-services" className="scroll-mt-20 bg-ink py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <SectionHeading
@@ -106,7 +122,110 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 sm:py-24">
+      <section id="error-handling" className="scroll-mt-20 bg-ink py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Error handling"
+              title={errorHandling.title}
+              body={errorHandling.body}
+            />
+            <ol className="mt-8 flex flex-wrap items-center gap-2" aria-label="How errors are handled">
+              {errorHandling.flow.map((step, i) => (
+                <li key={step} className="flex items-center gap-2">
+                  {i > 0 && (
+                    <span className="text-signal" aria-hidden>
+                      →
+                    </span>
+                  )}
+                  <span className="rounded-sm border border-steel/50 bg-ink-raised/70 px-3 py-1.5 text-sm text-foam">
+                    {step}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+          <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {errorHandling.features.map((f, i) => (
+              <Reveal key={f.name} delay={(i % 3) * 0.06} className="border-t border-steel/35 pt-5">
+                <h3 className="font-display text-base font-semibold text-foam">{f.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{f.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="reliability" className="scroll-mt-20 bg-ink-raised py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Reliability & SLAs"
+              title={reliability.title}
+              body={reliability.body}
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {reliability.commitments.map((c, i) => (
+              <Reveal key={c.name} delay={(i % 3) * 0.06} className="border-t border-steel/35 pt-5">
+                <h3 className="font-display text-base font-semibold text-foam">{c.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{c.text}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <h3 className="mt-16 font-display text-lg font-semibold text-foam">Service tiers</h3>
+          <div className="mt-6 grid gap-6 lg:grid-cols-3">
+            {reliability.tiers.map((tier, i) => {
+              const top = i === reliability.tiers.length - 1;
+              return (
+                <Reveal
+                  key={tier.name}
+                  delay={i * 0.08}
+                  className={`flex flex-col rounded-sm border px-6 py-7 ${
+                    top ? "border-signal/50 bg-signal/10" : "border-steel/35 bg-ink/60"
+                  }`}
+                >
+                  <p className={`font-display text-xl font-semibold ${top ? "text-signal" : "text-foam"}`}>
+                    {tier.name}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-mist">{tier.text}</p>
+                  <ul className="mt-5 space-y-2.5 border-t border-steel/25 pt-5">
+                    {tier.points.map((p) => (
+                      <li key={p} className="flex gap-3 text-sm text-mist">
+                        <span className="mt-2 h-px w-4 shrink-0 bg-signal" aria-hidden />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              );
+            })}
+          </div>
+          <p className="mt-6 text-sm text-mist">{reliability.note}</p>
+        </div>
+      </section>
+
+      <section id="platform-as-a-product" className="scroll-mt-20 bg-ink py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal>
+            <SectionHeading eyebrow="Platform as a Product" title={product.title} body={product.body} />
+          </Reveal>
+          <Reveal delay={0.08} className="mt-10">
+            <FeatureToggles />
+          </Reveal>
+          <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {product.features.map((f, i) => (
+              <Reveal key={f.name} delay={(i % 3) * 0.06} className="border-t border-steel/35 pt-5">
+                <h3 className="font-display text-base font-semibold text-foam">{f.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{f.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="scenarios" className="scroll-mt-20 bg-ink-raised py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <SectionHeading
@@ -120,7 +239,7 @@ export default function PlatformPage() {
               <Reveal
                 key={sc.name}
                 delay={(i % 2) * 0.06}
-                className="rounded-sm border border-steel/30 bg-ink-raised/60 px-6 py-6"
+                className="rounded-sm border border-steel/30 bg-ink/60 px-6 py-6"
               >
                 <h3 className="font-display text-base font-semibold text-foam">{sc.name}</h3>
                 <ul className="mt-4 space-y-2.5">
@@ -137,7 +256,7 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      <section className="bg-ink-raised py-20 sm:py-24">
+      <section className="bg-ink py-20 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading eyebrow="Engineering principles" title="Designed to scale and recover" />
@@ -156,7 +275,7 @@ export default function PlatformPage() {
               {platform.outcomes.map((o) => (
                 <li
                   key={o}
-                  className="rounded-sm border border-steel/30 bg-ink/60 px-5 py-5 text-sm leading-relaxed text-foam"
+                  className="rounded-sm border border-steel/30 bg-ink-raised/60 px-5 py-5 text-sm leading-relaxed text-foam"
                 >
                   <span className="mb-3 block h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
                   {o}
