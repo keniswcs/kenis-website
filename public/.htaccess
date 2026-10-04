@@ -22,7 +22,7 @@ ErrorDocument 404 /404.html
   # Pages retired in the October 2026 simplification
   RewriteRule ^capabilities(/.*)?$ /solutions/ [L,R=301]
   RewriteRule ^expertise(/.*)?$ /why-kenis/ [L,R=301]
-  RewriteRule ^deployment(/.*)?$ /platform/#deployment [L,R=301,NE]
+  RewriteRule ^deployment(/.*)?$ /solutions/deployment/ [L,R=301]
   RewriteRule ^ai-operations(/.*)?$ /solutions/ai-operations/ [L,R=301]
   RewriteRule ^analytics(/.*)?$ /solutions/analytics/ [L,R=301]
 </IfModule>

@@ -1,48 +1,89 @@
-import { RotateCcw, Search, Stethoscope, Wrench } from "lucide-react";
-
 export const aiOperations = {
-  title: "Intelligence built into operations",
+  title: "From reactive firefighting to data-driven recovery",
   intro:
-    "KENIS AI finds integration failures before they reach the floor, explains why they happened, and recommends the fix, so support teams resolve problems faster and stop them from coming back.",
+    "KENIS builds AI-powered tools that improve system visibility, identify operational gaps, and reduce manual troubleshooting, so support teams resolve problems faster and prevent them from coming back.",
   description:
-    "AI-assisted warehouse operations: detect failed or missing interface messages, identify root causes, recommend corrections, and safely reprocess approved transactions, with people in control.",
+    "AI-powered tools that detect failed or missing interface messages, find recurring failures, assist root-cause analysis, and reprocess corrected data into authorized systems.",
+  flow: ["Detect", "Diagnose", "Correct", "Recover"],
   steps: [
     {
-      icon: Search,
       name: "Detect",
-      text: "Find failed, missing, and stuck messages between WMS, the platform, and WCS.",
+      text: "Continuously watch interface traffic and operational data for failed, missing, or delayed messages.",
     },
     {
-      icon: Stethoscope,
       name: "Diagnose",
-      text: "Identify root causes and recurring patterns instead of digging through logs.",
+      text: "Correlate events and history to surface patterns, recurring failures, and likely root causes.",
     },
     {
-      icon: Wrench,
-      name: "Recommend",
-      text: "Check failed data against master data and rules, and propose a correction.",
+      name: "Correct",
+      text: "Validate failed message data against master data and rules, and propose corrections for review.",
     },
     {
-      icon: RotateCcw,
       name: "Recover",
-      text: "Safely reprocess approved transactions into authorized systems.",
+      text: "Reprocess or upload approved corrections back into authorized systems, with a full audit trail.",
     },
   ],
-  control: {
-    title: "AI recommends. Your team stays in control.",
-    body: "Nothing reaches a live system without approval, and every suggestion and action is recorded.",
+  useCases: [
+    {
+      name: "Interface message monitoring",
+      text: "Catch failed, missing, or stuck messages between WMS, the platform, and WCS before they affect the floor.",
+    },
+    {
+      name: "Recurring failure detection",
+      text: "Spot repeating errors by interface, SKU, equipment, or time of day.",
+    },
+    {
+      name: "Root-cause assistance",
+      text: "Give support teams context and probable causes instead of raw logs.",
+    },
+    {
+      name: "Data validation & correction",
+      text: "Check failed messages against master data and business rules, and suggest fixes.",
+    },
+    {
+      name: "Controlled reprocessing",
+      text: "Resubmit corrected messages to authorized systems with approvals and audit.",
+    },
+    {
+      name: "Dashboards & alerts",
+      text: "Real-time views of throughput, SLA risk, and open exceptions, with alerts to the right team.",
+    },
+    {
+      name: "Predictive congestion",
+      text: "Anticipate sorter overload, conveyor congestion, and dock bottlenecks so work can be re-routed early.",
+    },
+    {
+      name: "Predictive maintenance signals",
+      text: "Watch motor temperature, vibration, and current draw to raise maintenance tickets before failures.",
+    },
+  ],
+  metrics: {
+    title: "What we monitor",
     items: [
-      "People approve corrections before they reach live systems",
-      "Access limited to authorized systems and roles",
-      "Every suggestion, approval, and reprocess is logged",
+      "Orders per hour",
+      "Totes per hour",
+      "Pallets per hour",
+      "Robot utilization",
+      "Sorter utilization",
+      "Task age against SLA",
     ],
   },
   benefits: {
     title: "What changes for your team",
     items: [
-      { name: "Earlier detection", text: "Issues surface before they slow the floor." },
-      { name: "Faster root cause", text: "Context and likely causes, not raw logs." },
-      { name: "Less manual work", text: "Fewer repetitive fixes for support teams." },
+      "Less repetitive manual support work",
+      "Faster root-cause analysis",
+      "Earlier detection of issues",
+      "Better operational visibility",
+    ],
+  },
+  guardrails: {
+    title: "AI with guardrails",
+    items: [
+      "People approve corrections before they reach live systems",
+      "Access limited to authorized systems and roles",
+      "Every AI suggestion and action is logged",
+      "Reprocessed data is tracked end to end",
     ],
   },
 };

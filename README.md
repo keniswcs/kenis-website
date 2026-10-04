@@ -59,17 +59,16 @@ All wording lives in `src/content/`:
 | --- | --- |
 | `site.ts` | Company name, menu (including the Solutions dropdown), contact details, and the closing call to action |
 | `home.ts` | Home page: the three hero slides (Integrate, Operate, Optimize), "Why it matters", and "One Partner" |
-| `solutions.ts` | The five solutions, used on the Solutions page, home page, menu, and footer |
-| `ai-operations.ts` | AI Operations page |
-| `analytics.ts` | Operational Analytics page, UCH/RCH definitions, and the sample dashboard data |
-| `platform.ts` | Platform page: diagram, six capabilities, reliability, and deployment options |
-| `why-kenis.ts` | Why KENIS page |
+| `capabilities.ts` | Solutions page: delivery lifecycle and the eight services with activities and outcomes |
+| `ai-operations.ts` | AI Operations page: steps, use cases, monitoring, benefits, and guardrails |
+| `analytics.ts` | Operational Analytics page: UCH/RCH, sample dashboard data, views, data sources, and features |
+| `platform.ts` | Platform page: architecture, core services, error handling, SLA tiers, modules, and scenarios |
+| `deployment.ts` | Deployment page: options, comparison, disaster recovery, guardrails, and process |
+| `expertise.ts` | Why KENIS page: technology expertise and what sets KENIS apart |
 | `contact.ts` | Contact page and form topics |
 | `seo.ts` | Search titles and keywords for each page |
 
 If you add a new page, also add it to the menu in `site.ts`, to `seo.ts`, and to `public/sitemap.xml`. If you retire or move a page, add a 301 redirect for the old address to both `netlify.toml` and `public/.htaccess`.
-
-Deep technical detail (architecture, SLA tiers, disaster recovery) stays off the website and lives in `docs/KENIS-Platform-Technical-Brief.md`, which is shared on request.
 
 Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`. The warehouse floor backgrounds (`floor-conveyors.jpg` for the home hero and page headers, `floor-workflow.jpg` for the home "One Partner" section and the Platform header, `ai-operations.jpg` for the AI Operations header, `floor-packing.jpg` for the closing call to action) are AI-generated and set in `src/components/FloorPhoto.tsx`.
 

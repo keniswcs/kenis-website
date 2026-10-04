@@ -1,57 +1,67 @@
 import type { Metadata } from "next";
-import { whyKenis } from "@/content/why-kenis";
 import { seo } from "@/content/seo";
 import { pageMetadata } from "@/lib/metadata";
+import { expertise } from "@/content/expertise";
 import { PageHero } from "@/components/PageHero";
-import { Section } from "@/components/Section";
-import { SectionHeading } from "@/components/SectionHeading";
-import { IconCard } from "@/components/IconCard";
 import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
   ...seo.pages.whyKenis,
-  description: whyKenis.description,
+  description: expertise.description,
 });
 
 export default function WhyKenisPage() {
-  const { strengths, expertise } = whyKenis;
   return (
     <>
-      <PageHero label="Why KENIS" title={whyKenis.title} intro={whyKenis.intro} />
+      <PageHero label="Why KENIS" title={expertise.title} intro={expertise.intro} />
 
-      <Section tone="raised">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {strengths.map((item, i) => (
-            <Reveal key={item.name} delay={i * 0.05}>
-              <IconCard icon={item.icon} title={item.name} text={item.text} />
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <Reveal>
-          <SectionHeading eyebrow={expertise.eyebrow} title={expertise.title} />
-        </Reveal>
-        <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {expertise.groups.map((g, i) => (
-            <Reveal key={g.name} delay={i * 0.05} className="border-t border-steel/35 pt-5">
-              <h3 className="font-display text-base font-semibold text-foam">{g.name}</h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {g.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-sm border border-steel/50 bg-ink-raised/60 px-3 py-1.5 text-sm text-steel-bright"
-                  >
-                    {item}
-                  </li>
+      <section className="bg-ink-raised py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl space-y-14 px-5 sm:px-8">
+          {expertise.groups.map((group) => (
+            <div
+              key={group.name}
+              className="grid gap-8 border-t border-steel/30 pt-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
+            >
+              <Reveal>
+                <h2 className="font-display text-xl font-semibold tracking-tight text-foam sm:text-2xl">
+                  {group.name}
+                </h2>
+              </Reveal>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {group.items.map((item, i) => (
+                  <Reveal key={item.name} delay={i * 0.06}>
+                    <h3 className="font-display text-base font-semibold text-signal">{item.name}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-mist">{item.text}</p>
+                  </Reveal>
                 ))}
-              </ul>
-            </Reveal>
+              </div>
+            </div>
           ))}
         </div>
-      </Section>
+      </section>
+
+      <section className="bg-ink py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal>
+            <SectionHeading eyebrow="Why KENIS" title={expertise.why.title} />
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {expertise.why.items.map((item, i) => (
+              <Reveal
+                key={item.name}
+                delay={i * 0.06}
+                className="rounded-sm border border-steel/30 bg-ink-raised/60 px-5 py-6"
+              >
+                <span className="mb-4 block h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
+                <h3 className="font-display text-base font-semibold text-foam">{item.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{item.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <CtaBand />
     </>

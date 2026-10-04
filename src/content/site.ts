@@ -27,18 +27,23 @@ export const site = {
       children: [
         {
           label: "System Integration",
-          href: "/solutions#system-integration",
+          href: "/solutions#wcs-implementation",
           text: "Connect WMS, WCS, ERP, and automation",
         },
         {
           label: "Implementation & Delivery",
-          href: "/solutions#implementation-delivery",
+          href: "/solutions#project-management",
           text: "From design through go-live",
         },
         {
           label: "Testing & HyperCare",
-          href: "/solutions#testing-hypercare",
+          href: "/solutions#quality-assurance",
           text: "Validate, launch, and stabilize",
+        },
+        {
+          label: "Deployment",
+          href: "/solutions/deployment",
+          text: "Cloud, on-premises, or hybrid, with DR",
         },
         {
           label: "AI Operations",
