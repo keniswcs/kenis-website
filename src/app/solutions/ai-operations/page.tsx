@@ -25,6 +25,8 @@ export default function AiOperationsPage() {
         parent={{ label: "Solutions", href: "/solutions" }}
         title={aiOperations.title}
         intro={aiOperations.intro}
+        photo="ai"
+        photoPosition="70% 35%"
       />
 
       <Section tone="white">

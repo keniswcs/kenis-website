@@ -119,7 +119,17 @@ export default function Home() {
         </Reveal>
       </Section>
 
-      <Section tone="dark" className="relative overflow-hidden">
+      <Section
+        tone="dark"
+        background={
+          <>
+            <FloorPhoto photo="ai" position="center 30%" />
+            <div className="absolute inset-0 bg-ink/70 lg:bg-ink/30" aria-hidden />
+            <div className="absolute inset-0 hidden bg-gradient-to-l from-ink via-ink/75 to-transparent lg:block" aria-hidden />
+            <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-transparent to-ink/90" aria-hidden />
+          </>
+        }
+      >
         <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <AiVisual className="mx-auto w-40 sm:w-56 lg:w-full lg:max-w-sm" />
           <div>

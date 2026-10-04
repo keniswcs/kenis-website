@@ -1,23 +1,27 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { FloorPhoto } from "@/components/FloorPhoto";
+import { FloorPhoto, type Photo } from "@/components/FloorPhoto";
 
 export function PageHero({
   label,
   title,
   intro,
   parent,
+  photo = "conveyors",
+  photoPosition = "75% 60%",
   children,
 }: {
   label: string;
   title: string;
   intro: string;
   parent?: { label: string; href: string };
+  photo?: Photo;
+  photoPosition?: string;
   children?: ReactNode;
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-ink pb-14 pt-28 sm:pb-20 sm:pt-36">
-      <FloorPhoto photo="conveyors" position="75% 60%" priority />
+      <FloorPhoto photo={photo} position={photoPosition} priority />
       <div className="absolute inset-0 bg-ink/75 lg:hidden" aria-hidden />
       <div className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/85 to-ink/30 lg:block" aria-hidden />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" aria-hidden />
