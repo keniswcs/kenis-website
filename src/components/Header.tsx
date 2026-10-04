@@ -159,6 +159,7 @@ export function Header() {
           )}
           <Link
             href={site.contactCta.href}
+            aria-current={isActive(pathname, site.contactCta.href) ? "page" : undefined}
             className="rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-signal-bright"
           >
             {site.contactCta.label}
@@ -221,6 +222,7 @@ export function Header() {
             <div className="mt-auto pt-8">
               <Link
                 href={site.contactCta.href}
+                aria-current={isActive(pathname, site.contactCta.href) ? "page" : undefined}
                 onClick={close}
                 className="flex min-h-12 items-center justify-center rounded-md bg-signal text-base font-semibold text-ink"
               >

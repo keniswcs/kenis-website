@@ -54,7 +54,6 @@ export const site = {
     },
     { label: "Platform", href: "/platform" },
     { label: "Why KENIS", href: "/why-kenis" },
-    { label: "Contact", href: "/contact" },
   ] as NavItem[],
   contactCta: { label: "Talk to an Expert", href: "/contact" },
   cta: {
