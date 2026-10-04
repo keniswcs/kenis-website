@@ -1,13 +1,14 @@
 import { site } from "@/content/site";
 import { ButtonLink } from "@/components/ButtonLink";
-import { WarehouseCanvas } from "@/components/WarehouseCanvas";
+import { FloorPhoto } from "@/components/FloorPhoto";
 
 export function CtaBand() {
   const { cta } = site;
   return (
     <section className="relative isolate overflow-hidden bg-ink py-20 sm:py-24">
-      <WarehouseCanvas />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/50" aria-hidden />
+      <FloorPhoto photo="packing" position="65% center" />
+      <div className="absolute inset-0 bg-ink/70 lg:hidden" aria-hidden />
+      <div className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/85 to-ink/20 lg:block" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <p className="text-xs font-semibold tracking-[0.2em] text-signal uppercase">{cta.eyebrow}</p>
         <h2 className="mt-3 max-w-xl font-display text-3xl font-extrabold leading-tight tracking-tight text-foam sm:text-4xl">

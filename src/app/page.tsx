@@ -14,7 +14,7 @@ import { StepFlow } from "@/components/StepFlow";
 import { PlatformDiagram } from "@/components/PlatformDiagram";
 import { AiVisual } from "@/components/AiVisual";
 import { FloorDashboard } from "@/components/FloorDashboard";
-import { WarehouseCanvas } from "@/components/WarehouseCanvas";
+import { FloorPhoto } from "@/components/FloorPhoto";
 import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
@@ -28,8 +28,9 @@ export default function Home() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-ink">
-        <WarehouseCanvas />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/30" aria-hidden />
+        <FloorPhoto photo="conveyors" position="70% center" priority />
+        <div className="absolute inset-0 bg-ink/65 lg:hidden" aria-hidden />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/75 to-ink/10 lg:block" aria-hidden />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" aria-hidden />
         <div className="relative mx-auto flex min-h-[38rem] max-w-6xl flex-col justify-center px-5 pb-16 pt-28 sm:px-8 lg:min-h-[44rem]">
           <p className="text-xs font-semibold tracking-[0.2em] text-signal uppercase sm:text-sm">

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { FloorPhoto } from "@/components/FloorPhoto";
 
 export function PageHero({
   label,
@@ -16,14 +17,10 @@ export function PageHero({
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-ink pb-14 pt-28 sm:pb-20 sm:pt-36">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(36,64,58,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(36,64,58,0.35)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-signal/15 blur-3xl"
-        aria-hidden
-      />
+      <FloorPhoto photo="conveyors" position="75% 60%" priority />
+      <div className="absolute inset-0 bg-ink/75 lg:hidden" aria-hidden />
+      <div className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/85 to-ink/30 lg:block" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <nav aria-label="Breadcrumb" className="text-xs font-semibold tracking-[0.18em] uppercase">
