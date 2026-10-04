@@ -70,7 +70,20 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section tone="dark">
+      <Section
+        tone="dark"
+        background={
+          <>
+            <FloorPhoto photo="workflow" />
+            <div className="absolute inset-0 bg-ink/50" aria-hidden />
+            <div
+              className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(5,12,11,0.55),transparent_70%)]"
+              aria-hidden
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-transparent to-ink/80" aria-hidden />
+          </>
+        }
+      >
         <Reveal>
           <SectionHeading tone="dark" eyebrow={solution.eyebrow} title={solution.title} body={solution.body} />
         </Reveal>

@@ -71,7 +71,7 @@ If you add a new page, also add it to the menu in `site.ts`, to `seo.ts`, and to
 
 Deep technical detail (architecture, SLA tiers, disaster recovery) stays off the website and lives in `docs/KENIS-Platform-Technical-Brief.md`, which is shared on request.
 
-Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`. The warehouse floor backgrounds (`floor-conveyors.jpg` for page headers, `floor-packing.jpg` for the closing call to action) are AI-generated and set in `src/components/FloorPhoto.tsx`.
+Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`. The warehouse floor backgrounds (`floor-conveyors.jpg` for page headers, `floor-workflow.jpg` for the home page "The KENIS Solution" section, `floor-packing.jpg` for the closing call to action) are AI-generated and set in `src/components/FloorPhoto.tsx`.
 
 ## Hosting
 

@@ -1,6 +1,7 @@
 const photos = {
   conveyors: "/images/floor-conveyors.jpg",
   packing: "/images/floor-packing.jpg",
+  workflow: "/images/floor-workflow.jpg",
 } as const;
 
 export function FloorPhoto({
