@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Manrope } from "next/font/google";
+import { IBM_Plex_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 import { seo } from "@/content/seo";
@@ -7,10 +7,10 @@ import { organizationJsonLd } from "@/lib/metadata";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const display = Manrope({
-  variable: "--font-manrope",
+const display = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const body = IBM_Plex_Sans({

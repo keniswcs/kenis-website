@@ -1,18 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #050c0b;
-  --ink-raised: #0b1614;
-  --foam: #eef4f2;
-  --mist: #a3b5b0;
-  --steel: #24403a;
-  --steel-bright: #7fa39a;
-  --signal: #2fd27a;
-  --signal-bright: #62e49c;
-  --signal-deep: #0f7a41;
-  --paper: #f3f6f5;
-  --line: #dce5e1;
-  --slate: #4a5b57;
+  --ink: #071018;
+  --ink-raised: #0c1822;
+  --foam: #eef3f6;
+  --mist: #9bb0bd;
+  --steel: #2a4558;
+  --steel-bright: #7a9bb0;
+  --signal: #c9782a;
+  --signal-bright: #e8a838;
 }
 
 @theme inline {
@@ -24,12 +20,8 @@
   --color-steel-bright: var(--steel-bright);
   --color-signal: var(--signal);
   --color-signal-bright: var(--signal-bright);
-  --color-signal-deep: var(--signal-deep);
-  --color-paper: var(--paper);
-  --color-line: var(--line);
-  --color-slate: var(--slate);
   --font-sans: var(--font-ibm);
-  --font-display: var(--font-manrope);
+  --font-display: var(--font-syne);
 }
 
 html {
@@ -69,6 +61,19 @@ body {
   }
 }
 
+@keyframes slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-slide-progress {
+  animation: slide-progress linear forwards;
+}
+
 .animate-pulse-soft {
   animation: pulse-soft 3.2s ease-in-out infinite;
 }
@@ -79,23 +84,4 @@ body {
 
 .animate-dash {
   animation: dash 2.5s linear infinite;
-}
-
-@keyframes drift {
-  from {
-    transform: scale(1.04) translate3d(0, 0, 0);
-  }
-  to {
-    transform: scale(1.12) translate3d(-1.5%, -1%, 0);
-  }
-}
-
-.animate-drift {
-  animation: drift 24s ease-in-out infinite alternate;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-drift {
-    animation: none;
-  }
 }

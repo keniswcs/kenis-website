@@ -8,7 +8,7 @@ const FORM_NAME = "contact";
 const FORM_ENDPOINT = "/__forms.html";
 
 const fieldClass =
-  "w-full rounded-md border border-steel/70 bg-ink-raised px-4 py-3 text-base text-foam outline-none transition-colors focus:border-signal disabled:opacity-60";
+  "w-full rounded-sm border border-steel/40 bg-ink px-4 py-3 text-foam outline-none transition-colors focus:border-signal disabled:opacity-60";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -55,7 +55,7 @@ export function ContactForm() {
       <div
         ref={sentRef}
         tabIndex={-1}
-        className="flex flex-col items-start rounded-lg border border-signal/40 bg-signal/[0.07] px-6 py-8 outline-none sm:px-8"
+        className="flex flex-col items-start rounded-sm border border-signal/40 bg-signal/[0.07] px-6 py-8 outline-none sm:px-8"
         role="status"
       >
         <span
@@ -154,7 +154,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={sending}
-        className="mt-1 min-h-12 w-full rounded-md bg-signal px-6 py-3 sm:w-auto sm:self-start text-sm font-semibold text-ink transition-colors hover:bg-signal-bright disabled:cursor-wait disabled:opacity-70"
+        className="mt-1 self-start rounded-sm bg-signal px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-signal-bright disabled:cursor-wait disabled:opacity-70"
       >
         {sending ? "Sending…" : "Send message"}
       </button>

@@ -19,12 +19,12 @@ ErrorDocument 404 /404.html
   RewriteCond %{HTTP:X-Forwarded-Proto} !=https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Pages retired in the October 2026 simplification
-  RewriteRule ^capabilities(/.*)?$ /solutions/ [L,R=301]
-  RewriteRule ^expertise(/.*)?$ /why-kenis/ [L,R=301]
-  RewriteRule ^deployment(/.*)?$ /platform/#deployment [L,R=301,NE]
-  RewriteRule ^ai-operations(/.*)?$ /solutions/ai-operations/ [L,R=301]
-  RewriteRule ^analytics(/.*)?$ /solutions/analytics/ [L,R=301]
+  # Addresses used by the October 2026 simplified site; keep so old links still work.
+  RewriteRule ^solutions/ai-operations(/.*)?$ /ai-operations/ [L,R=301]
+  RewriteRule ^solutions/analytics(/.*)?$ /analytics/ [L,R=301]
+  RewriteRule ^solutions/deployment(/.*)?$ /deployment/ [L,R=301]
+  RewriteRule ^solutions(/.*)?$ /capabilities/ [L,R=301]
+  RewriteRule ^why-kenis(/.*)?$ /expertise/ [L,R=301]
 </IfModule>
 
 <IfModule mod_headers.c>
