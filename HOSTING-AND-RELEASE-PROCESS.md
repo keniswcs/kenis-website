@@ -103,7 +103,8 @@ After each release, in a private browser window:
 - [ ] `keniswcs.com` and `http://` addresses redirect to https://www.keniswcs.com
 - [ ] Each menu page opens directly (Capabilities, Platform, Deployment, AI Operations, Analytics, Expertise, Contact)
 - [ ] A made-up address (for example `/test-404/`) shows the KENIS 404 page
-- [ ] Slideshow, analytics dashboard, and platform module switches work
+- [ ] Solutions dropdown (desktop) and full-screen menu (phone) work, and the analytics dashboard updates
+- [ ] Old addresses such as `/capabilities/` and `/analytics/` redirect to their new pages
 - [ ] Phone link works, and a test message from the contact form arrives at info@keniswcs.com
 
 **Command-line checks (PowerShell):**
@@ -117,8 +118,8 @@ Resolve-DnsName www.keniswcs.com -Type CNAME -Server 8.8.8.8  # keniswcs.netlify
 Resolve-DnsName keniswcs.com -Type MX -Server 8.8.8.8         # keniswcs-com.mail.protection.outlook.com
 
 # Main pages should return 200
-'/', '/platform/', '/analytics/', '/contact/' | ForEach-Object {
-  "{0,-14} {1}" -f $_, (Invoke-WebRequest "https://www.keniswcs.com$_" -UseBasicParsing).StatusCode
+'/', '/solutions/', '/solutions/analytics/', '/platform/', '/why-kenis/', '/contact/' | ForEach-Object {
+  "{0,-24} {1}" -f $_, (Invoke-WebRequest "https://www.keniswcs.com$_" -UseBasicParsing).StatusCode
 }
 ```
 

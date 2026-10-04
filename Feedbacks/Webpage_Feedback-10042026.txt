@@ -1,0 +1,199 @@
+I went through the live KENIS WCS website⁠ , including the homepage, Capabilities, Platform, AI Operations, Analytics, Expertise, and Contact pages. Your instinct is right: the underlying content is strong, but there is too much of it presented at the same level of importance. That makes KENIS feel more complicated than it needs to.
+
+What I would change
+
+1. Simplify the top navigation.
+
+Right now you have:
+
+Capabilities | Platform | Deployment | AI Operations | Analytics | Expertise | Contact
+
+That’s too many primary choices, especially because AI, analytics, deployment, and platform capabilities overlap.
+
+I would change it to:
+
+Solutions | Platform | Why KENIS | About | Contact
+
+Then put AI Operations, Analytics, Deployment, Implementation, Testing, and HyperCare underneath Solutions.
+
+⸻
+
+2. Make the homepage much shorter.
+
+The homepage currently introduces WMS/WCS orchestration, AI, end-to-end delivery, six separate capability cards, your Plan → Integrate → Automate → Test → Launch → Optimize process, four benefits, and another CTA. 
+
+That’s a lot for someone who has known KENIS for 30 seconds.
+
+I would make the homepage tell one simple story:
+
+Headline
+
+Connect Your WMS, WCS and Warehouse Automation.
+
+Subheadline
+
+KENIS integrates warehouse systems, automation and operational intelligence through one flexible orchestration platform.
+
+Then three simple pillars:
+
+Integrate
+Connect WMS, WCS and automation.
+
+Operate
+Monitor workflows, exceptions and performance.
+
+Optimize
+Use analytics and AI to identify problems and improve operations.
+
+Then:
+
+One Partner. From Integration to Go-Live.
+
+And one strong CTA:
+
+Talk to a KENIS Expert
+
+That’s enough.
+
+⸻
+
+3. Your Platform page needs the biggest reduction.
+
+This is where I see the strongest “clustered” problem.
+
+The page currently has architecture, API Gateway, business rules, workflow orchestration, event processing, exception handling, inventory synchronization, equipment coordination, monitoring, audit, operations features, IT features, nine separate error-handling features, reliability, SLAs, three service tiers, eight configurable modules, scaling, warehouse scenarios, engineering principles, and business outcomes. 
+
+It’s excellent material for a technical proposal or RFP.
+
+It’s too much for the public website.
+
+I’d cut roughly 50–60% of this page.
+
+The Platform page should primarily show:
+
+WMS / ERP / OMS
+↓
+KENIS Integration & Orchestration Platform
+↓
+WCS / PLC / Conveyors / Sorters / Robotics
+
+And underneath that, six capabilities:
+
+Integration
+Orchestration
+Exception Management
+Inventory Synchronization
+Monitoring
+Analytics & AI
+
+Everything else can eventually become technical documentation, a downloadable solution brief, or sales material.
+
+⸻
+
+4. Don’t explain the same service on multiple pages.
+
+For example, AI Operations appears on the homepage, Capabilities page, Platform page, and its own AI page. Analytics follows a similar pattern. 
+
+Repeating a mention is good. Repeating the explanation makes the website feel larger and more complicated.
+
+Use this rule:
+
+Homepage = What KENIS does
+Solutions = What problems you solve
+Platform = How the technology works
+Why KENIS = Why customers should trust you
+
+⸻
+
+5. Keep the AI page — but simplify it.
+
+This is actually one of your better pages because it has a clear story:
+
+Detect → Diagnose → Correct → Recover. 
+
+Keep that.
+
+But I would reduce the long use-case list and focus on four:
+
+Detect failed/missing messages
+Identify root causes
+Recommend corrections
+Safely reprocess approved transactions
+
+And keep “AI recommends. Your team stays in control.” That is a strong enterprise message. 
+
+⸻
+
+6. Keep Analytics visual.
+
+Your Analytics page has something your other pages don’t: an actual simulated operational dashboard showing UCH, RCH, attainment, projected finish and zone performance. 
+
+That’s valuable.
+
+Instead of explaining Analytics extensively, let the dashboard sell it.
+
+Headline:
+
+Know Before Your Operation Falls Behind.
+
+Then dashboard.
+
+Then three benefits:
+
+Real-time throughput
+Early performance alerts
+Projected completion & cutoff risk
+
+Much cleaner.
+
+⸻
+
+The biggest messaging change
+
+Right now KENIS is trying to tell visitors everything you can do.
+
+I want it to tell visitors:
+
+What problem do we solve?
+
+Warehouse systems don’t always communicate cleanly.
+
+What does KENIS do?
+
+We connect and orchestrate WMS, WCS and warehouse automation.
+
+Why does that matter?
+
+Fewer integration problems, faster issue resolution, better visibility and less disruption.
+
+What do I do next?
+
+Talk to KENIS.
+
+That should be understandable in 10–15 seconds.
+
+I would also change the positioning slightly
+
+Your current homepage leads with the technically accurate but long phrase “warehouse integration and orchestration platform between WMS and WCS.” 
+
+I’d make KENIS sound more outcome-oriented:
+
+Warehouse Automation. Connected.
+
+KENIS connects WMS, WCS and automation through one intelligent orchestration platform—helping operations integrate faster, recover from problems sooner and see what’s happening across the floor.
+
+Then your existing “Warehouse Automation. Integrated. Intelligent.” can remain as the brand tagline in the footer. 
+
+My recommended new website structure
+
+I would reduce the whole site to 5 main sections:
+
+HOME → SOLUTIONS → PLATFORM → WHY KENIS → CONTACT
+
+Under Solutions, you can cover WCS Integration | Project Delivery | Testing & Go-Live | AI Operations | Analytics.
+
+Under Platform, cover Architecture | Integration | Orchestration | Reliability | Deployment.
+
+That structure would make KENIS look more established, easier to understand, and less like a technical specification document.
+
+And importantly, I would not remove the technical material permanently. A company evaluating KENIS—especially an enterprise customer—may eventually want that detail. I would move the deeper architecture/SLA/error-handling material into solution briefs, technical PDFs, or sales/RFP documentation rather than putting all of it in the main browsing experience.

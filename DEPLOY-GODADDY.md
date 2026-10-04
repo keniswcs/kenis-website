@@ -86,7 +86,7 @@ Work happens on `develop`; production is always built from `main`.
    npm run build
    ```
 
-   The build creates the `out\` folder. It must contain `index.html`, `404.html`, `.htaccess`, `_next\`, `images\`, and one folder per page (`capabilities\`, `platform\`, `deployment\`, `ai-operations\`, `analytics\`, `expertise\`, `contact\`).
+   The build creates the `out\` folder. It must contain `index.html`, `404.html`, `.htaccess`, `_next\`, `images\`, and one folder per page (`solutions\` with `ai-operations\` and `analytics\` inside it, `platform\`, `why-kenis\`, `contact\`).
 
 3. **Optional local preview** of the exact files you will upload:
 
@@ -132,7 +132,7 @@ In a private browser window:
 
 - [ ] `https://www.keniswcs.com` loads with the padlock
 - [ ] `http://keniswcs.com`, `https://keniswcs.com`, and `http://www.keniswcs.com` all end up at `https://www.keniswcs.com`
-- [ ] Every menu page loads directly, for example `https://www.keniswcs.com/analytics/` and `https://www.keniswcs.com/platform/`
+- [ ] Every menu page loads directly, for example `https://www.keniswcs.com/solutions/analytics/` and `https://www.keniswcs.com/platform/`
 - [ ] A made-up address such as `https://www.keniswcs.com/test-404/` shows the KENIS 404 page
 - [ ] Slideshow, analytics dashboard, and platform module switches work
 - [ ] Phone link calls (901) 651-1909 on a mobile phone; the contact form opens an email to info@keniswcs.com
