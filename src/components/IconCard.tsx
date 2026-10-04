@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, type LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export function IconCard({
   icon: Icon,
@@ -8,7 +8,6 @@ export function IconCard({
   text,
   href,
   linkLabel = "Learn more",
-  dark = false,
   children,
 }: {
   icon: LucideIcon;
@@ -16,45 +15,26 @@ export function IconCard({
   text: string;
   href?: string;
   linkLabel?: string;
-  dark?: boolean;
   children?: ReactNode;
 }) {
   return (
-    <div
-      className={`flex h-full flex-col rounded-lg border p-5 sm:p-6 ${
-        dark
-          ? "border-steel/50 bg-ink-raised"
-          : "border-line bg-white shadow-sm shadow-ink/[0.04]"
-      }`}
-    >
+    <div className="flex h-full flex-col rounded-sm border border-steel/35 bg-ink/60 p-5 sm:px-6 sm:py-7">
       <div className="flex items-center gap-4 sm:block">
-        <span
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-md ${
-            dark ? "bg-signal/15 text-signal" : "bg-signal/10 text-signal-deep"
-          }`}
-        >
-          <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
-        </span>
-        <h3
-          className={`font-display text-lg font-bold sm:mt-5 ${dark ? "text-foam" : "text-ink"}`}
-        >
-          {title}
-        </h3>
+        <Icon className="h-6 w-6 shrink-0 text-signal" strokeWidth={1.5} aria-hidden />
+        <h3 className="font-display text-lg font-semibold text-foam sm:mt-4">{title}</h3>
       </div>
-      <p className={`mt-3 text-sm leading-relaxed sm:mt-2 ${dark ? "text-mist" : "text-slate"}`}>
-        {text}
-      </p>
+      <p className="mt-3 text-sm leading-relaxed text-mist sm:mt-2">{text}</p>
       {children}
       {href && (
         <Link
           href={href}
-          className={`mt-auto inline-flex min-h-11 items-center gap-1.5 pt-4 text-sm font-semibold sm:pt-5 ${
-            dark ? "text-signal hover:text-signal-bright" : "text-signal-deep hover:text-ink"
-          }`}
+          className="group mt-auto inline-flex min-h-11 items-center gap-1.5 pt-4 text-sm font-medium text-signal hover:text-signal-bright sm:pt-5"
         >
           {linkLabel}
           <span className="sr-only">: {title}</span>
-          <ArrowRight className="h-4 w-4" aria-hidden />
+          <span className="inline-block transition-transform group-hover:translate-x-1" aria-hidden>
+            →
+          </span>
         </Link>
       )}
     </div>

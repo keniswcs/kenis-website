@@ -30,7 +30,7 @@ export default function AnalyticsPage() {
         </div>
       </PageHero>
 
-      <Section tone="white">
+      <Section tone="raised">
         <div className="grid gap-4 md:grid-cols-3">
           {analytics.benefits.map((b, i) => (
             <Reveal key={b.name} delay={i * 0.06}>
@@ -40,16 +40,16 @@ export default function AnalyticsPage() {
         </div>
       </Section>
 
-      <Section tone="light">
+      <Section>
         <Reveal>
           <SectionHeading eyebrow="The two numbers that matter" title="UCH vs RCH" body={analytics.sources} />
         </Reveal>
-        <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
+        <div className="mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
           {analytics.terms.map((t) => (
-            <div key={t.code} className="rounded-lg border border-line bg-white p-6">
-              <p className="font-display text-3xl font-extrabold text-signal-deep">{t.code}</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{t.name}</p>
-              <p className="mt-2 text-sm text-slate">{t.text}</p>
+            <div key={t.code} className="rounded-sm border border-steel/35 bg-ink-raised/60 px-6 py-6">
+              <p className="font-display text-3xl font-semibold text-signal">{t.code}</p>
+              <p className="mt-1 text-sm font-medium text-foam">{t.name}</p>
+              <p className="mt-2 text-sm leading-relaxed text-mist">{t.text}</p>
             </div>
           ))}
         </div>

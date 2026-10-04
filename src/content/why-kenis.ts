@@ -1,9 +1,33 @@
+import { Blocks, Handshake, Scaling, Warehouse } from "lucide-react";
+
 export const whyKenis = {
   title: "More than software. An automation partner.",
   intro:
     "KENIS combines warehouse operations know-how, systems integration, and its own orchestration platform, so one team owns the outcome from first design to stable operation.",
   description:
     "Why KENIS: warehouse automation expertise, end-to-end delivery from integration to HyperCare, technology-independent integration across WMS and WCS vendors, and a platform built to scale.",
+  strengths: [
+    {
+      icon: Warehouse,
+      name: "Warehouse expertise",
+      text: "Built around real-world warehouse execution and automation challenges.",
+    },
+    {
+      icon: Handshake,
+      name: "End-to-end delivery",
+      text: "From architecture and integration through testing, go-live, and HyperCare.",
+    },
+    {
+      icon: Blocks,
+      name: "Technology independent",
+      text: "Designed to connect across WMS, WCS, and automation vendors.",
+    },
+    {
+      icon: Scaling,
+      name: "Built to scale",
+      text: "A flexible architecture that grows with your operation.",
+    },
+  ],
   expertise: {
     eyebrow: "Expertise",
     title: "We work across every layer of the warehouse",
@@ -12,16 +36,6 @@ export const whyKenis = {
       { name: "Material handling", items: ["Conveyors", "Sortation", "AS/RS & shuttles", "Robotics & AMRs"] },
       { name: "Controls", items: ["PLCs", "Scanners", "Identification"] },
       { name: "Integration & data", items: ["APIs", "Event streaming", "Analytics", "AI"] },
-    ],
-  },
-  outcomes: {
-    eyebrow: "What you get",
-    title: "Results that matter to operations and IT",
-    items: [
-      { name: "Protect existing investments", text: "Connect the systems you have instead of replacing them." },
-      { name: "Fewer integration problems", text: "One orchestration layer instead of point-to-point interfaces." },
-      { name: "Faster issue resolution", text: "Problems detected, explained, and recovered sooner." },
-      { name: "Less disruption", text: "Tested end to end before the floor depends on it." },
     ],
   },
 };

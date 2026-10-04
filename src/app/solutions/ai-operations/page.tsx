@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ShieldCheck } from "lucide-react";
 import { aiOperations } from "@/content/ai-operations";
 import { seo } from "@/content/seo";
 import { pageMetadata } from "@/lib/metadata";
@@ -7,7 +6,6 @@ import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
-import { StepFlow } from "@/components/StepFlow";
 import { AiVisual } from "@/components/AiVisual";
 import { CtaBand } from "@/components/CtaBand";
 
@@ -27,26 +25,53 @@ export default function AiOperationsPage() {
         intro={aiOperations.intro}
         photo="ai"
         photoPosition="70% 35%"
-      />
+      >
+        <ol className="mt-8 flex flex-wrap items-center gap-2" aria-label="How AI operations works">
+          {steps.map((step, i) => (
+            <li key={step.name} className="flex items-center gap-2">
+              {i > 0 && (
+                <span className="text-signal" aria-hidden>
+                  →
+                </span>
+              )}
+              <span className="rounded-sm border border-steel/50 bg-ink/70 px-3 py-1.5 text-sm text-foam">
+                {step.name}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </PageHero>
 
-      <Section tone="white">
+      <Section tone="raised">
         <Reveal>
-          <SectionHeading eyebrow="How it works" title="Detect. Diagnose. Recommend. Recover." />
+          <SectionHeading eyebrow="How it works" title="A closed loop from failure to recovery" />
         </Reveal>
-        <Reveal className="mt-12">
-          <StepFlow steps={steps} />
-        </Reveal>
+        <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, i) => (
+            <li key={step.name}>
+              <Reveal delay={i * 0.08} className="h-full rounded-sm border border-steel/35 bg-ink/60 px-6 py-7">
+                <span className="flex items-center gap-3">
+                  <step.icon className="h-5 w-5 text-signal" strokeWidth={1.5} aria-hidden />
+                  <span className="font-mono text-xs text-signal">{String(i + 1).padStart(2, "0")}</span>
+                </span>
+                <p className="mt-3 font-display text-xl font-semibold text-foam">{step.name}</p>
+                <p className="mt-3 text-sm leading-relaxed text-mist">{step.text}</p>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
       </Section>
 
-      <Section tone="dark">
+      <Section>
         <div className="grid items-center gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
-          <AiVisual className="mx-auto w-40 sm:w-52 lg:w-full lg:max-w-xs" />
-          <Reveal>
-            <SectionHeading tone="dark" align="left" eyebrow="People in control" title={control.title} body={control.body} />
-            <ul className="mt-8 space-y-3">
+          <AiVisual className="mx-auto w-36 sm:w-48 lg:w-full lg:max-w-xs" />
+          <Reveal className="rounded-sm border border-signal/40 bg-signal/[0.07] px-6 py-8 sm:px-10 sm:py-10">
+            <h2 className="font-display text-xl font-semibold text-foam sm:text-2xl">{control.title}</h2>
+            <p className="mt-3 max-w-2xl text-sm text-mist sm:text-base">{control.body}</p>
+            <ul className="mt-6 space-y-3">
               {control.items.map((item) => (
-                <li key={item} className="flex gap-3 text-base text-foam">
-                  <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-signal" aria-hidden />
+                <li key={item} className="flex gap-3 text-sm leading-relaxed text-mist sm:text-base">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-signal" aria-hidden />
                   {item}
                 </li>
               ))}
@@ -55,20 +80,20 @@ export default function AiOperationsPage() {
         </div>
       </Section>
 
-      <Section tone="light">
+      <Section tone="raised">
         <Reveal>
-          <SectionHeading title={benefits.title} />
+          <SectionHeading eyebrow="Benefits" title={benefits.title} />
         </Reveal>
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {benefits.items.map((b, i) => (
-            <Reveal key={b.name} delay={i * 0.06}>
-              <div className="h-full rounded-lg border border-line bg-white p-6 text-center">
-                <p className="font-display text-lg font-bold text-ink">{b.name}</p>
-                <p className="mt-2 text-sm text-slate">{b.text}</p>
-              </div>
-            </Reveal>
+            <li key={b.name}>
+              <Reveal delay={i * 0.06} className="h-full border-t border-steel/35 pt-5">
+                <p className="font-display text-lg font-semibold text-foam">{b.name}</p>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{b.text}</p>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ul>
       </Section>
 
       <CtaBand />

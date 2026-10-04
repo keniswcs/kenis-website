@@ -9,7 +9,7 @@ export const site = {
   legalName: "KENIS WCS Integrated Solutions",
   domain: "keniswcs.com",
   url: "https://www.keniswcs.com",
-  tagline: "Warehouse Automation. Connected.",
+  tagline: "Warehouse Automation. Integrated. Intelligent.",
   vision: "A future where every warehouse system works together seamlessly.",
   logo: {
     mark: "/images/kenis-mark.png",
@@ -57,7 +57,6 @@ export const site = {
   ] as NavItem[],
   contactCta: { label: "Talk to an Expert", href: "/contact" },
   cta: {
-    eyebrow: "Get started",
     title: "Ready to simplify your warehouse integration?",
     body: "Let's discuss your automation environment, integration challenges, and operational goals.",
     primary: { label: "Talk to a KENIS Expert", href: "/contact" },

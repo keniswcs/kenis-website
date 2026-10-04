@@ -30,14 +30,14 @@ export default function ContactPage() {
                 <li key={c.label}>
                   <a
                     href={c.href}
-                    className="flex items-center gap-4 rounded-lg border border-steel/60 bg-ink px-5 py-4 transition-colors hover:border-signal"
+                    className="flex items-center gap-4 rounded-sm border border-steel/40 bg-ink px-5 py-4 transition-colors hover:border-signal"
                   >
                     <c.icon className="h-5 w-5 shrink-0 text-signal" aria-hidden />
                     <span>
                       <span className="block text-xs font-semibold tracking-[0.18em] text-steel-bright uppercase">
                         {c.label}
                       </span>
-                      <span className="block font-display text-lg font-bold text-foam">{c.value}</span>
+                      <span className="block font-display text-lg font-semibold text-foam">{c.value}</span>
                     </span>
                   </a>
                 </li>
@@ -50,11 +50,11 @@ export default function ContactPage() {
             <ol className="mt-5 space-y-5">
               {contact.nextSteps.map((step, i) => (
                 <li key={step.name} className="flex gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-signal/60 text-xs font-bold text-signal">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-signal/60 font-mono text-xs text-signal">
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-display font-bold text-foam">{step.name}</p>
+                    <p className="font-display font-semibold text-foam">{step.name}</p>
                     <p className="mt-1 text-sm leading-relaxed text-mist">{step.text}</p>
                   </div>
                 </li>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             </ol>
           </div>
 
-          <div className="rounded-xl border border-steel/60 bg-ink p-5 sm:p-8">
+          <div className="rounded-sm border border-steel/40 bg-ink p-5 sm:p-8">
             <ContactForm />
           </div>
         </div>

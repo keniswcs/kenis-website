@@ -28,7 +28,7 @@ const { enterprise, kenis, automation } = platform.diagram;
 
 function SystemGroup({ label, items }: { label: string; items: readonly string[] }) {
   return (
-    <div className="rounded-lg border border-steel/60 bg-ink-raised p-5">
+    <div className="rounded-sm border border-steel/50 bg-ink-raised/90 p-5">
       <p className="text-center text-sm font-semibold text-foam">{label}</p>
       <ul className="mt-4 flex flex-wrap justify-center gap-2">
         {items.map((name) => {
@@ -36,7 +36,7 @@ function SystemGroup({ label, items }: { label: string; items: readonly string[]
           return (
             <li
               key={name}
-              className="flex w-16 flex-col items-center gap-1.5 rounded-md border border-steel/50 bg-ink px-1 py-2.5"
+              className="flex w-16 flex-col items-center gap-1.5 rounded-sm border border-steel/50 bg-ink px-1 py-2.5"
             >
               <Icon className="h-5 w-5 text-steel-bright" strokeWidth={1.75} aria-hidden />
               <span className="text-[11px] font-medium text-mist">{name}</span>
@@ -62,8 +62,8 @@ export function PlatformDiagram() {
     <figure className="grid items-center gap-4 lg:grid-cols-[1fr_auto_1.15fr_auto_1fr]">
       <SystemGroup label={enterprise.label} items={enterprise.items} />
       <Connector />
-      <div className="relative rounded-xl border border-signal/70 bg-ink px-6 py-8 text-center shadow-[0_0_60px_-12px_rgba(47,210,122,0.55)]">
-        <p className="font-display text-4xl font-extrabold tracking-[0.08em] text-foam sm:text-5xl">
+      <div className="relative rounded-sm border border-signal/70 bg-ink px-6 py-8 text-center shadow-[0_0_60px_-12px_rgba(201,120,42,0.55)]">
+        <p className="font-display text-4xl font-semibold tracking-[0.08em] text-foam sm:text-5xl">
           {kenis.label}
         </p>
         <p className="mt-3 text-xs font-medium tracking-wide text-signal sm:text-sm">{kenis.tagline}</p>

@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 const variants = {
   primary: "bg-signal text-ink hover:bg-signal-bright",
-  "outline-dark": "border border-foam/40 text-foam hover:border-signal hover:text-signal",
-  "outline-light": "border border-ink/25 text-ink hover:border-signal-deep hover:text-signal-deep",
+  outline: "border border-steel-bright/60 text-foam hover:border-signal hover:text-signal",
 };
 
 export function ButtonLink({
@@ -24,10 +22,10 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 text-sm font-semibold transition-colors ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-sm px-6 text-sm font-semibold transition-colors ${variants[variant]} ${className}`}
     >
       {children}
-      {arrow && <ArrowRight className="h-4 w-4" aria-hidden />}
+      {arrow && <span aria-hidden>→</span>}
     </Link>
   );
 }

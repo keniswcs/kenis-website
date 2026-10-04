@@ -1,15 +1,14 @@
 import type { ReactNode } from "react";
 
-export type Tone = "dark" | "light" | "white";
+export type Tone = "ink" | "raised";
 
 const toneClass: Record<Tone, string> = {
-  dark: "bg-ink text-foam",
-  light: "bg-paper text-ink",
-  white: "bg-white text-ink",
+  ink: "bg-ink",
+  raised: "bg-ink-raised",
 };
 
 export function Section({
-  tone = "white",
+  tone = "ink",
   id,
   className = "",
   background,
@@ -24,7 +23,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`scroll-mt-20 py-16 sm:py-24 ${toneClass[tone]} ${
+      className={`scroll-mt-20 py-20 sm:py-24 ${toneClass[tone]} ${
         background ? "relative isolate overflow-hidden" : ""
       } ${className}`}
     >

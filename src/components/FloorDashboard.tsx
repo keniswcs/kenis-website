@@ -38,7 +38,7 @@ const completedHourRch = completedHours.map((_, h) =>
 
 function status(attainment: number) {
   if (attainment >= 1) return { label: "On pace", text: "text-emerald-400", bar: "bg-emerald-400" };
-  if (attainment >= 0.95) return { label: "At risk", text: "text-amber-300", bar: "bg-amber-300" };
+  if (attainment >= 0.95) return { label: "At risk", text: "text-signal-bright", bar: "bg-signal-bright" };
   return { label: "Behind", text: "text-red-400", bar: "bg-red-400" };
 }
 
@@ -79,10 +79,10 @@ export function FloorDashboard({ title = "Floor dashboard" }: { title?: string }
   const scaleMax = Math.max(...hours.map((x) => Math.max(x.actual, x.rch)), uch) * 1.15;
 
   return (
-    <figure className="overflow-hidden rounded-xl border border-steel/60 bg-ink shadow-2xl shadow-ink/40">
+    <figure className="overflow-hidden rounded-sm border border-steel/40 bg-ink shadow-2xl shadow-black/30">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-steel/30 bg-ink-raised px-5 py-3">
         <div>
-          <p className="font-display text-sm font-bold text-foam">{title}</p>
+          <p className="font-display text-sm font-semibold text-foam">{title}</p>
           <p className="text-xs text-mist">{shiftLabel}</p>
         </div>
         <div className="flex items-center gap-4 text-xs">
@@ -123,7 +123,7 @@ export function FloorDashboard({ title = "Floor dashboard" }: { title?: string }
                 UCH
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 border-t-2 border-dashed border-amber-300" aria-hidden />
+                <span className="w-3 border-t-2 border-dashed border-signal-bright" aria-hidden />
                 RCH
               </span>
             </div>
@@ -150,7 +150,7 @@ export function FloorDashboard({ title = "Floor dashboard" }: { title?: string }
                     />
                     <div
                       className={`absolute -inset-x-0.5 border-t-2 border-dashed transition-[bottom] duration-700 motion-reduce:transition-none ${
-                        isFuture ? "border-amber-300/40" : "border-amber-300"
+                        isFuture ? "border-signal-bright/40" : "border-signal-bright"
                       }`}
                       style={{ bottom: `${(x.rch / scaleMax) * 100}%` }}
                       aria-hidden
