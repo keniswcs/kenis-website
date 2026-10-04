@@ -15,14 +15,7 @@ export const metadata: Metadata = pageMetadata({
 export default function AiOperationsPage() {
   return (
     <>
-      <PageHero
-        label="AI Operations"
-        parent={{ label: "Solutions", href: "/solutions" }}
-        title={aiOperations.title}
-        intro={aiOperations.intro}
-        photo="ai"
-        photoPosition="70% 35%"
-      >
+      <PageHero label="AI Operations" title={aiOperations.title} intro={aiOperations.intro}>
         <ol className="mt-8 flex flex-wrap items-center gap-2" aria-label="How AI operations works">
           {aiOperations.flow.map((step, i) => (
             <li key={step} className="flex items-center gap-2">

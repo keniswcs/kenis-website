@@ -85,22 +85,3 @@ body {
 .animate-dash {
   animation: dash 2.5s linear infinite;
 }
-
-@keyframes drift {
-  from {
-    transform: scale(1.04) translate3d(0, 0, 0);
-  }
-  to {
-    transform: scale(1.12) translate3d(-1.5%, -1%, 0);
-  }
-}
-
-.animate-drift {
-  animation: drift 24s ease-in-out infinite alternate;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-drift {
-    animation: none;
-  }
-}

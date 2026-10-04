@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/content/site";
-import { home } from "@/content/home";
 import { seo } from "@/content/seo";
 import { pageMetadata } from "@/lib/metadata";
 import { Hero } from "@/components/Hero";
-import { Section } from "@/components/Section";
-import { SectionHeading } from "@/components/SectionHeading";
-import { ButtonLink } from "@/components/ButtonLink";
 import { Reveal } from "@/components/Reveal";
-import { FloorPhoto } from "@/components/FloorPhoto";
+import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
@@ -17,73 +14,73 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function Home() {
-  const { story, partner } = home;
+  const { explore, why } = site.home;
 
   return (
     <>
       <Hero />
 
-      <Section tone="raised">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <section className="bg-ink-raised py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
-            <SectionHeading eyebrow={story.eyebrow} title={story.title} body={story.body} />
-            <div className="mt-8">
-              <ButtonLink href="/solutions" variant="outline" arrow>
-                Explore solutions
-              </ButtonLink>
-            </div>
+            <SectionHeading eyebrow={explore.eyebrow} title={explore.title} />
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {explore.cards.map((card, i) => (
+              <Reveal key={card.href} delay={i * 0.06}>
+                <Link
+                  href={card.href}
+                  className="group flex h-full flex-col rounded-sm border border-steel/35 bg-ink/60 px-6 py-7 transition-colors hover:border-signal/60 hover:bg-signal/[0.06]"
+                >
+                  <h3 className="font-display text-lg font-semibold text-foam">{card.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-mist sm:text-base">
+                    {card.body}
+                  </p>
+                  <span className="mt-6 text-sm font-medium text-signal">
+                    Learn more{" "}
+                    <span className="inline-block transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink py-24 sm:py-28">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <SectionHeading eyebrow={why.eyebrow} title={why.title} body={why.body} />
+            <ol className="mt-8 flex flex-wrap gap-x-2 gap-y-3" aria-label="Delivery lifecycle">
+              {why.lifecycle.map((step, i) => (
+                <li key={step} className="flex items-center gap-2 text-sm">
+                  {i > 0 && (
+                    <span className="text-steel" aria-hidden>
+                      →
+                    </span>
+                  )}
+                  <span className="font-medium text-foam">{step}</span>
+                </li>
+              ))}
+            </ol>
           </Reveal>
           <Reveal delay={0.08}>
-            <ul className="grid grid-cols-2 gap-3 sm:gap-4">
-              {story.outcomes.map((outcome) => (
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {why.points.map((point) => (
                 <li
-                  key={outcome}
-                  className="rounded-sm border border-steel/30 bg-ink/60 p-4 text-sm leading-relaxed text-foam sm:px-5 sm:py-5 sm:text-base"
+                  key={point}
+                  className="rounded-sm border border-steel/30 bg-ink-raised/60 px-5 py-5 text-sm leading-relaxed text-foam sm:text-base"
                 >
                   <span className="mb-3 block h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
-                  {outcome}
+                  {point}
                 </li>
               ))}
             </ul>
           </Reveal>
         </div>
-      </Section>
-
-      <Section
-        background={
-          <>
-            <FloorPhoto photo="workflow" />
-            <div className="absolute inset-0 bg-ink/75" aria-hidden />
-            <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-transparent to-ink/90" aria-hidden />
-          </>
-        }
-      >
-        <Reveal>
-          <SectionHeading align="center" eyebrow={partner.eyebrow} title={partner.title} body={partner.body} />
-          <ol
-            className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-2 gap-y-3"
-            aria-label="Delivery lifecycle"
-          >
-            {partner.lifecycle.map((step, i) => (
-              <li key={step} className="flex items-center gap-2">
-                {i > 0 && (
-                  <span className="text-signal" aria-hidden>
-                    →
-                  </span>
-                )}
-                <span className="rounded-sm border border-steel/50 bg-ink/70 px-3 py-1.5 text-sm text-foam">
-                  {step}
-                </span>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-10 text-center">
-            <ButtonLink href={partner.cta.href} variant="outline" arrow>
-              {partner.cta.label}
-            </ButtonLink>
-          </div>
-        </Reveal>
-      </Section>
+      </section>
 
       <CtaBand />
     </>

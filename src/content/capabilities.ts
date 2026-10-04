@@ -79,7 +79,7 @@ export const capabilities = {
         "Dashboards, alerts, and actionable insights",
       ],
       outcome: "Faster, data-driven problem resolution instead of reactive firefighting.",
-      link: { label: "Explore AI operations", href: "/solutions/ai-operations" },
+      link: { label: "Explore AI operations", href: "/ai-operations" },
     },
     {
       id: "reporting-analytics",
@@ -94,7 +94,7 @@ export const capabilities = {
         "Trends across shifts and sites, with export to your BI tools",
       ],
       outcome: "Supervisors see where the shift stands and act before cutoffs slip.",
-      link: { label: "Explore analytics", href: "/solutions/analytics" },
+      link: { label: "Explore analytics", href: "/analytics" },
     },
     {
       id: "quality-assurance",
@@ -136,7 +136,7 @@ export const capabilities = {
         "Security guardrails in every deployment",
       ],
       outcome: "A deployment model that fits your IT and security policies.",
-      link: { label: "View deployment options", href: "/solutions/deployment" },
+      link: { label: "View deployment options", href: "/deployment" },
     },
   ] as Service[],
 };

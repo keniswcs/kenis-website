@@ -8,14 +8,14 @@ import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
-  ...seo.pages.solutions,
+  ...seo.pages.capabilities,
   description: capabilities.description,
 });
 
-export default function SolutionsPage() {
+export default function CapabilitiesPage() {
   return (
     <>
-      <PageHero label="Solutions" title={capabilities.title} intro={capabilities.intro}>
+      <PageHero label="Capabilities" title={capabilities.title} intro={capabilities.intro}>
         <ul className="mt-8 flex flex-wrap gap-2">
           {capabilities.services.map((s) => (
             <li key={s.id}>

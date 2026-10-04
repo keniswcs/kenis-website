@@ -2,16 +2,13 @@ export function SectionHeading({
   eyebrow,
   title,
   body,
-  align = "left",
 }: {
   eyebrow?: string;
   title: string;
   body?: string;
-  align?: "left" | "center";
 }) {
-  const centered = align === "center";
   return (
-    <div className={centered ? "mx-auto max-w-2xl text-center" : undefined}>
+    <div>
       {eyebrow && (
         <p className="font-display text-sm font-medium tracking-[0.2em] text-signal uppercase">
           {eyebrow}

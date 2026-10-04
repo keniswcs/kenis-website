@@ -8,7 +8,7 @@ const FORM_NAME = "contact";
 const FORM_ENDPOINT = "/__forms.html";
 
 const fieldClass =
-  "w-full rounded-sm border border-steel/50 bg-ink-raised px-4 py-3 text-base text-foam outline-none transition-colors focus:border-signal disabled:opacity-60";
+  "w-full rounded-sm border border-steel/40 bg-ink px-4 py-3 text-foam outline-none transition-colors focus:border-signal disabled:opacity-60";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -154,7 +154,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={sending}
-        className="mt-1 min-h-12 w-full rounded-sm bg-signal px-6 py-3 sm:w-auto sm:self-start text-sm font-semibold text-ink transition-colors hover:bg-signal-bright disabled:cursor-wait disabled:opacity-70"
+        className="mt-1 self-start rounded-sm bg-signal px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-signal-bright disabled:cursor-wait disabled:opacity-70"
       >
         {sending ? "Sending…" : "Send message"}
       </button>

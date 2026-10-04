@@ -19,11 +19,9 @@ export default function PlatformPage() {
   return (
     <>
       <PageHero
-        label="Platform"
+        label="Integration & Orchestration Platform"
         title={platform.title}
         intro={platform.intro}
-        photo="workflow"
-        photoPosition="center"
       >
         <ul className="mt-8 flex flex-wrap gap-2">
           {platform.sections.map((s) => (

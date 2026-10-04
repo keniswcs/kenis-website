@@ -5,16 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { site } from "@/content/site";
-import { home } from "@/content/home";
-import { FloorPhoto } from "@/components/FloorPhoto";
+import { WarehouseCanvas } from "@/components/WarehouseCanvas";
 
-const SLIDE_MS = 6000;
+const SLIDE_MS = 5000;
 const SWIPE_DISTANCE = 60;
 const SWIPE_VELOCITY = 400;
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
-  const { titleLead, titleAccent, slides } = home.hero;
+  const slides = site.hero.slides;
   const reduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -39,9 +38,9 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden bg-ink"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-ink"
       aria-roledescription="carousel"
-      aria-label="What KENIS does"
+      aria-label="KENIS WCS capabilities"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={(e) => {
@@ -55,19 +54,18 @@ export function Hero() {
         if (e.key === "ArrowLeft") goTo(index - 1);
       }}
     >
-      <FloorPhoto photo="conveyors" position="70% center" priority />
-      <div className="absolute inset-0 bg-ink/70 lg:hidden" />
-      <div className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/85 to-ink/40 lg:block" />
+      <WarehouseCanvas />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50" />
+
+      <h1 className="sr-only">
+        {site.legalName}: warehouse integration and orchestration platform between WMS and WCS
+      </h1>
 
       <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-10 px-5 pb-16 pt-24 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14 lg:pt-28">
         <div className="order-last lg:order-first">
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-foam sm:text-5xl md:text-6xl">
-            {titleLead} <span className="text-signal">{titleAccent}</span>
-          </h1>
-
           <div
-            className="mt-8 min-h-[17rem] border-l-2 border-signal/60 pl-5 sm:min-h-[15rem] sm:pl-6"
+            className="min-h-[25rem] sm:min-h-[22rem]"
             aria-live={playing ? "off" : "polite"}
             aria-atomic="true"
           >
@@ -99,14 +97,15 @@ export function Hero() {
                 className="cursor-grab select-none active:cursor-grabbing"
               >
                 <p className="font-display text-xs font-semibold tracking-[0.22em] text-signal uppercase sm:text-sm">
-                  <span className="font-mono text-steel-bright">{String(index + 1).padStart(2, "0")}</span>{" "}
                   {slide.eyebrow}
                 </p>
-                <h2 className="mt-3 max-w-xl font-display text-2xl font-semibold leading-snug tracking-tight text-foam sm:text-3xl">
+                <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-foam sm:text-4xl md:text-5xl md:leading-[1.1]">
                   {slide.title}
                 </h2>
-                <p className="mt-4 max-w-xl text-base leading-relaxed text-mist sm:text-lg">{slide.body}</p>
-                <ul className="mt-6 flex flex-wrap gap-2">
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-mist sm:text-lg">
+                  {slide.body}
+                </p>
+                <ul className="mt-7 flex flex-wrap gap-2">
                   {slide.highlights.map((h) => (
                     <li
                       key={h}
@@ -120,22 +119,16 @@ export function Hero() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               href={slide.cta.href}
-              className="inline-flex min-h-12 items-center justify-center rounded-sm bg-signal px-6 text-sm font-semibold text-ink transition-colors hover:bg-signal-bright"
+              className="rounded-sm bg-signal px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-signal-bright"
             >
               {slide.cta.label} →
             </Link>
-            <Link
-              href={site.contactCta.href}
-              className="inline-flex min-h-12 items-center justify-center rounded-sm border border-steel-bright/60 px-6 text-sm font-semibold text-foam transition-colors hover:border-signal hover:text-signal"
-            >
-              Talk to a KENIS Expert
-            </Link>
           </div>
 
-          <div className="mt-10 flex items-center gap-4">
+          <div className="mt-12 flex items-center gap-4">
             <button
               type="button"
               onClick={() => goTo(index - 1)}
@@ -154,7 +147,7 @@ export function Hero() {
                   aria-selected={i === index}
                   aria-label={`Slide ${i + 1}: ${s.eyebrow}`}
                   onClick={() => goTo(i)}
-                  className="group relative h-11 flex-1"
+                  className="group relative h-6 flex-1"
                 >
                   <span className="absolute inset-x-0 top-1/2 h-[3px] -translate-y-1/2 overflow-hidden rounded-full bg-steel/50 transition-colors group-hover:bg-steel-bright/60">
                     {i < index && <span className="absolute inset-0 bg-signal/60" />}
@@ -171,14 +164,6 @@ export function Hero() {
                         onAnimationEnd={() => goTo(index + 1)}
                       />
                     )}
-                  </span>
-                  <span
-                    className={`absolute inset-x-0 top-full -mt-1 hidden text-left text-xs sm:block ${
-                      i === index ? "text-foam" : "text-steel-bright"
-                    }`}
-                    aria-hidden
-                  >
-                    {s.eyebrow}
                   </span>
                 </button>
               ))}
@@ -197,22 +182,29 @@ export function Hero() {
               type="button"
               onClick={() => setUserPaused(!paused)}
               aria-label={paused ? "Start slideshow" : "Pause slideshow"}
-              className="flex h-11 w-9 shrink-0 items-center justify-center rounded-sm text-steel-bright transition-colors hover:text-foam"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm text-steel-bright transition-colors hover:text-foam"
             >
               <span aria-hidden className="text-xs">
                 {paused ? "▶" : "❚❚"}
               </span>
             </button>
+
+            <span className="hidden font-mono text-xs tabular-nums text-steel-bright sm:inline">
+              {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+            </span>
           </div>
         </div>
 
         <div className="order-first flex flex-col items-center lg:order-last">
-          <div className="relative aspect-square w-28 sm:w-40 lg:w-full lg:max-w-[23rem]">
+          <div className="relative aspect-square w-36 sm:w-48 lg:w-full lg:max-w-[23rem]">
             <div
               className="absolute -inset-3 rounded-full border border-dashed border-steel-bright/30 animate-spin-slow"
               aria-hidden
             />
-            <div className="absolute -inset-8 rounded-full bg-signal/10 blur-3xl" aria-hidden />
+            <div
+              className="absolute -inset-8 rounded-full bg-signal/10 blur-3xl"
+              aria-hidden
+            />
             <Image
               src={site.logo.mark}
               alt={site.logo.alt}
@@ -239,7 +231,7 @@ export function Hero() {
                     {i > 0 && <span className="text-signal">→</span>}
                     <span
                       className={`rounded-sm border px-2.5 py-1 text-xs ${
-                        step === "KENIS"
+                        step.startsWith("KENIS")
                           ? "border-signal/60 bg-signal/15 text-signal"
                           : "border-steel/50 bg-ink/70 text-foam"
                       }`}
@@ -252,7 +244,9 @@ export function Hero() {
             </AnimatePresence>
           </div>
 
-          <p className="mt-6 hidden max-w-xs text-center text-sm italic text-mist lg:block">{site.vision}</p>
+          <p className="mt-6 hidden max-w-xs text-center text-sm italic text-mist lg:block">
+            {site.vision}
+          </p>
         </div>
       </div>
     </section>

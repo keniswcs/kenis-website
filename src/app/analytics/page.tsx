@@ -16,12 +16,7 @@ export const metadata: Metadata = pageMetadata({
 export default function AnalyticsPage() {
   return (
     <>
-      <PageHero
-        label="Analytics"
-        parent={{ label: "Solutions", href: "/solutions" }}
-        title={analytics.title}
-        intro={analytics.intro}
-      >
+      <PageHero label="Analytics" title={analytics.title} intro={analytics.intro}>
         <ol className="mt-8 flex flex-wrap items-center gap-2" aria-label="How reporting works">
           {analytics.flow.map((step, i) => (
             <li key={step} className="flex items-center gap-2">

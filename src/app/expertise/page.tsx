@@ -8,14 +8,14 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
-  ...seo.pages.whyKenis,
+  ...seo.pages.expertise,
   description: expertise.description,
 });
 
-export default function WhyKenisPage() {
+export default function ExpertisePage() {
   return (
     <>
-      <PageHero label="Why KENIS" title={expertise.title} intro={expertise.intro} />
+      <PageHero label="Expertise" title={expertise.title} intro={expertise.intro} />
 
       <section className="bg-ink-raised py-20 sm:py-24">
         <div className="mx-auto max-w-6xl space-y-14 px-5 sm:px-8">

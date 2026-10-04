@@ -1,10 +1,11 @@
 import { site } from "./site";
 
 export const seo = {
-  homeTitle: `${site.name} | Warehouse Automation. Connected.`,
+  homeTitle: `${site.name} | WCS Implementation & WMS–WCS Integration`,
   keywords: [
     "KENIS WCS",
     "warehouse control system",
+    "WCS implementation",
     "WCS integration",
     "WMS WCS integration",
     "WMS to WCS middleware",
@@ -23,54 +24,16 @@ export const seo = {
         "real-time warehouse analytics",
       ],
     },
-    solutions: {
-      path: "/solutions/",
-      title: "Warehouse Automation Solutions: Integration to Go-Live",
+    capabilities: {
+      path: "/capabilities/",
+      title: "WCS Implementation & Warehouse Integration Services",
       keywords: [
         "WCS implementation services",
         "warehouse systems integration services",
-        "warehouse automation project delivery",
         "WCS testing and commissioning",
         "warehouse go-live support",
         "HyperCare support",
         "warehouse automation project management",
-      ],
-    },
-    deployment: {
-      path: "/solutions/deployment/",
-      title: "Deployment Options: Cloud, On-Premise & Hybrid",
-      keywords: [
-        "cloud WCS",
-        "on-premise WCS",
-        "hybrid warehouse deployment",
-        "warehouse disaster recovery",
-        "active passive failover",
-        "multi-region disaster recovery",
-      ],
-    },
-    aiOperations: {
-      path: "/solutions/ai-operations/",
-      title: "AI-Powered Warehouse Operations",
-      keywords: [
-        "AI warehouse operations",
-        "interface message monitoring",
-        "warehouse root cause analysis",
-        "failed message recovery",
-        "AI troubleshooting warehouse",
-      ],
-    },
-    analytics: {
-      path: "/solutions/analytics/",
-      title: "Real-Time Warehouse Analytics: UCH & RCH",
-      keywords: [
-        "UCH",
-        "RCH",
-        "units per hour",
-        "cases per hour",
-        "required cases per hour",
-        "warehouse KPI dashboard",
-        "real-time floor analytics",
-        "projected completion",
       ],
     },
     platform: {
@@ -86,21 +49,58 @@ export const seo = {
         "platform as a product",
       ],
     },
-    whyKenis: {
-      path: "/why-kenis/",
-      title: "Why KENIS: Your Warehouse Automation Partner",
+    deployment: {
+      path: "/deployment/",
+      title: "Deployment Options: Cloud, On-Premise & Hybrid",
       keywords: [
-        "warehouse automation partner",
-        "warehouse automation consultants",
-        "conveyor and sortation integration",
+        "cloud WCS",
+        "on-premise WCS",
+        "hybrid warehouse deployment",
+        "warehouse disaster recovery",
+        "active passive failover",
+        "multi-region disaster recovery",
+      ],
+    },
+    aiOperations: {
+      path: "/ai-operations/",
+      title: "AI-Powered Warehouse Operations",
+      keywords: [
+        "AI warehouse operations",
+        "interface message monitoring",
+        "warehouse root cause analysis",
+        "failed message recovery",
+        "AI troubleshooting warehouse",
+      ],
+    },
+    analytics: {
+      path: "/analytics/",
+      title: "Real-Time Warehouse Analytics: UCH & RCH",
+      keywords: [
+        "UCH",
+        "RCH",
+        "units per hour",
+        "cases per hour",
+        "required cases per hour",
+        "warehouse KPI dashboard",
+        "real-time floor analytics",
+        "warehouse productivity reporting",
+      ],
+    },
+    expertise: {
+      path: "/expertise/",
+      title: "Warehouse Automation Expertise",
+      keywords: [
+        "WMS integration",
+        "conveyor and sortation controls",
         "AS/RS integration",
         "robotics and AMR integration",
         "PLC integration",
+        "warehouse automation consultants",
       ],
     },
     contact: {
       path: "/contact/",
-      title: "Talk to a KENIS Expert",
+      title: "Contact Us",
       keywords: ["WCS consultation", "warehouse automation consultation", "contact KENIS WCS"],
     },
   },

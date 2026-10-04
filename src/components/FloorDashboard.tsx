@@ -50,7 +50,7 @@ const clock = (hourFloat: number) => {
   return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 };
 
-export function FloorDashboard({ title = "Floor dashboard" }: { title?: string }) {
+export function FloorDashboard() {
   const [minute, setMinute] = useState(START_MINUTE);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export function FloorDashboard({ title = "Floor dashboard" }: { title?: string }
     <figure className="overflow-hidden rounded-sm border border-steel/40 bg-ink shadow-2xl shadow-black/30">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-steel/30 bg-ink-raised px-5 py-3">
         <div>
-          <p className="font-display text-sm font-semibold text-foam">{title}</p>
+          <p className="font-display text-sm font-semibold text-foam">Floor dashboard</p>
           <p className="text-xs text-mist">{shiftLabel}</p>
         </div>
         <div className="flex items-center gap-4 text-xs">
@@ -185,8 +185,8 @@ export function FloorDashboard({ title = "Floor dashboard" }: { title?: string }
               return (
                 <li key={zone.name}>
                   <div className="flex items-baseline justify-between gap-3 text-sm">
-                    <span className="min-w-0 text-foam">{zone.name}</span>
-                    <span className="shrink-0 whitespace-nowrap font-mono text-xs text-mist">
+                    <span className="text-foam">{zone.name}</span>
+                    <span className="font-mono text-xs text-mist">
                       {fmt(zoneUch)} / {fmt(zoneRch)}{" "}
                       <span className={`ml-1 ${s.text}`}>{pct(zoneAttainment)}</span>
                     </span>
