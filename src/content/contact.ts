@@ -1,17 +1,17 @@
 export const contact = {
-  title: "Let's talk about your warehouse stack",
+  title: "Talk to a KENIS expert",
   intro:
-    "Tell us about your WMS, WCS, and floor automation goals. We will follow up to discuss the right mix of integration, implementation, AI operations, and deployment.",
+    "Tell us about your WMS, WCS, and automation environment. We will follow up to discuss your integration challenges and operational goals.",
   description:
-    "Contact KENIS WCS Integrated Solutions about WMS and WCS integration, warehouse automation, AI operations, and deployment options.",
+    "Contact KENIS WCS Integrated Solutions about WMS and WCS integration, warehouse automation projects, AI operations, and operational analytics.",
   topics: [
-    "Integration & Orchestration Platform",
-    "WCS implementation & integration",
-    "AI-powered operations",
-    "Reporting & analytics",
-    "Deployment options",
-    "Testing, go-live & HyperCare",
-    "Project management",
+    "System integration",
+    "Implementation & delivery",
+    "Testing & HyperCare",
+    "AI operations",
+    "Operational analytics",
+    "The KENIS platform",
+    "Technical solution brief",
     "Something else",
   ],
   form: {

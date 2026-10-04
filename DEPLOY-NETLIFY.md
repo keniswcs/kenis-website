@@ -55,7 +55,7 @@ nslookup www.keniswcs.com    # should show keniswcs.netlify.app
 
 - [ ] `https://www.keniswcs.com` loads with the padlock
 - [ ] `http://keniswcs.com` and `https://keniswcs.com` redirect to `https://www.keniswcs.com`
-- [ ] Every menu page opens directly, for example `https://www.keniswcs.com/analytics/`
+- [ ] Every menu page opens directly, for example `https://www.keniswcs.com/solutions/analytics/`
 - [ ] A made-up address shows the KENIS 404 page
 - [ ] Email to info@keniswcs.com still arrives
 - [ ] A test message from the Contact page arrives at info@keniswcs.com (Part 6)

@@ -14,28 +14,28 @@ Integration & Orchestration Platform between WMS and WCS, floor operations, impl
 | UI | React 19 + TypeScript |
 | Styling | Tailwind CSS 4 |
 | Motion | Framer Motion |
-| Fonts | Syne + IBM Plex Sans (Google Fonts) |
+| Icons | lucide-react |
+| Fonts | Manrope + IBM Plex Sans (Google Fonts) |
 | Hosting target | GoDaddy (static export → FTP / File Manager) |
 
 ## Project structure
 
 ```
 kenis-website/
-├── docs/                     # Product source briefs
+├── docs/                     # Product source briefs and the internal technical brief
 ├── public/                   # Static assets (logo, robots.txt, sitemap.xml)
 ├── src/
 │   ├── app/                  # One folder per page (App Router)
-│   │   ├── page.tsx          # Home: slideshow + overview
-│   │   ├── capabilities/     # /capabilities
+│   │   ├── page.tsx          # Home
+│   │   ├── solutions/        # /solutions (all five solutions)
+│   │   │   ├── ai-operations/  # /solutions/ai-operations
+│   │   │   └── analytics/      # /solutions/analytics (live UCH/RCH sample dashboard)
 │   │   ├── platform/         # /platform
-│   │   ├── deployment/       # /deployment
-│   │   ├── ai-operations/    # /ai-operations
-│   │   ├── analytics/        # /analytics (live UCH/RCH sample dashboard)
-│   │   ├── expertise/        # /expertise
+│   │   ├── why-kenis/        # /why-kenis
 │   │   └── contact/          # /contact
-│   ├── components/           # Header, footer, slideshow, shared page pieces
+│   ├── components/           # Header, footer, and shared page pieces
 │   ├── content/              # Editable copy, one file per page
-│   └── lib/                  # Shared utilities (future)
+│   └── lib/                  # Page metadata helper
 ├── next.config.ts            # Static export configured
 └── package.json
 ```
@@ -57,19 +57,21 @@ All wording lives in `src/content/`:
 
 | File | What it controls |
 | --- | --- |
-| `site.ts` | Company name, menu, contact email, home page, and the slideshow (`hero.slides`) |
-| `capabilities.ts` | Capabilities page |
-| `platform.ts` | Integration & Orchestration Platform page |
-| `deployment.ts` | Deployment page |
+| `site.ts` | Company name, menu (including the Solutions dropdown), contact details, and the closing call to action |
+| `home.ts` | Home page sections |
+| `solutions.ts` | The five solutions, used on the Solutions page, home page, menu, and footer |
 | `ai-operations.ts` | AI Operations page |
-| `analytics.ts` | Reporting & Analytics page, UCH/RCH definitions, and the sample dashboard data |
-| `expertise.ts` | Expertise page |
+| `analytics.ts` | Operational Analytics page, UCH/RCH definitions, and the sample dashboard data |
+| `platform.ts` | Platform page: diagram, six capabilities, reliability, and deployment options |
+| `why-kenis.ts` | Why KENIS page |
 | `contact.ts` | Contact page and form topics |
 | `seo.ts` | Search titles and keywords for each page |
 
-If you add a new page, also add it to the menu in `site.ts`, to `seo.ts`, and to `public/sitemap.xml`.
+If you add a new page, also add it to the menu in `site.ts`, to `seo.ts`, and to `public/sitemap.xml`. If you retire or move a page, add a 301 redirect for the old address to both `netlify.toml` and `public/.htaccess`.
 
-Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`.
+Deep technical detail (architecture, SLA tiers, disaster recovery) stays off the website and lives in `docs/KENIS-Platform-Technical-Brief.md`, which is shared on request.
+
+Logo files live in `public/images/` (`kenis-logo.jpeg` is the original artwork, `kenis-mark.png` is the round cutout used on the page). The browser tab icons are `src/app/icon.png` and `src/app/apple-icon.png`. The warehouse floor backgrounds (`floor-conveyors.jpg` for page headers, `floor-workflow.jpg` for the home page "The KENIS Solution" section, `ai-operations.jpg` for the AI Operations section and page header, `floor-packing.jpg` for the closing call to action) are AI-generated and set in `src/components/FloorPhoto.tsx`.
 
 ## Hosting
 

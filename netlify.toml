@@ -11,6 +11,32 @@
 # Netlify (Domain management). Adding the same redirect here causes a loop if the
 # primary domain is ever set to keniswcs.com.
 
+# Pages retired in the October 2026 simplification; keep so old links and search results still work.
+[[redirects]]
+  from = "/capabilities/*"
+  to = "/solutions/"
+  status = 301
+
+[[redirects]]
+  from = "/expertise/*"
+  to = "/why-kenis/"
+  status = 301
+
+[[redirects]]
+  from = "/deployment/*"
+  to = "/platform/#deployment"
+  status = 301
+
+[[redirects]]
+  from = "/ai-operations/*"
+  to = "/solutions/ai-operations/"
+  status = 301
+
+[[redirects]]
+  from = "/analytics/*"
+  to = "/solutions/analytics/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
