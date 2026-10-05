@@ -17,7 +17,12 @@ export default function DeploymentPage() {
 
   return (
     <>
-      <PageHero label="Deployment" title={deployment.title} intro={deployment.intro} />
+      <PageHero
+        label="Deployment"
+        parent={{ label: "Solutions", href: "/capabilities" }}
+        title={deployment.title}
+        intro={deployment.intro}
+      />
 
       <section className="bg-ink-raised py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">

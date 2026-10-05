@@ -101,7 +101,7 @@ After each release, in a private browser window:
 
 - [ ] https://www.keniswcs.com loads with the padlock
 - [ ] `keniswcs.com` and `http://` addresses redirect to https://www.keniswcs.com
-- [ ] Each menu page opens directly (Capabilities, Platform, Deployment, AI Operations, Analytics, Expertise, Contact)
+- [ ] Each menu page opens directly (Solutions and every page in its dropdown, Platform, Why KENIS, Talk to our Experts)
 - [ ] A made-up address (for example `/test-404/`) shows the KENIS 404 page
 - [ ] Slideshow, analytics dashboard, and platform module switches work
 - [ ] Phone link works, and a test message from the contact form arrives at info@keniswcs.com

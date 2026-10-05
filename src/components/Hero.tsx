@@ -128,7 +128,7 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="mt-12 flex items-center gap-4">
+          <div className="mt-8 flex items-center gap-4">
             <button
               type="button"
               onClick={() => goTo(index - 1)}

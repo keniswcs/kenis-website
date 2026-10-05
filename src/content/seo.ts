@@ -88,7 +88,7 @@ export const seo = {
     },
     expertise: {
       path: "/expertise/",
-      title: "Warehouse Automation Expertise",
+      title: "Why KENIS: About KENIS WCS and Our Expertise",
       keywords: [
         "WMS integration",
         "conveyor and sortation controls",
