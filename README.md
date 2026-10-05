@@ -58,12 +58,12 @@ All wording lives in `src/content/`:
 | File | What it controls |
 | --- | --- |
 | `site.ts` | Company name, menu, contact email, home page, and the slideshow (`hero.slides`) |
-| `capabilities.ts` | Capabilities page |
+| `capabilities.ts` | Solutions page (`/capabilities`) |
 | `platform.ts` | Integration & Orchestration Platform page |
 | `deployment.ts` | Deployment page |
 | `ai-operations.ts` | AI Operations page |
 | `analytics.ts` | Reporting & Analytics page, UCH/RCH definitions, and the sample dashboard data |
-| `expertise.ts` | Expertise page |
+| `expertise.ts` | Why KENIS page (`/expertise`): about KENIS, why KENIS, and expertise |
 | `contact.ts` | Contact page and form topics |
 | `seo.ts` | Search titles and keywords for each page |
 

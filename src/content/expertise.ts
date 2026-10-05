@@ -1,9 +1,27 @@
 export const expertise = {
+  hero: {
+    title: "Your existing technology is an investment",
+    intro:
+      "KENIS helps organizations connect existing systems, automate complex processes, identify problems faster, and improve operational visibility without unnecessary system replacement.",
+    lifecycle: ["Plan", "Integrate", "Automate", "Test", "Launch", "Optimize"],
+  },
+  about: {
+    eyebrow: "About KENIS",
+    title: "KENIS WCS Integrated Solutions",
+    body: "We deliver end-to-end Warehouse Control System implementation, an Integration & Orchestration Platform between WMS and WCS, AI-powered floor operations, and real-time reporting and analytics for warehouses and distribution centers.",
+    motto: "One Partner. End-to-End Support. Intelligent Solutions.",
+    points: [
+      "Protect existing technology investments",
+      "Reduce implementation cost and disruption",
+      "Simplify upgrades across vendors",
+      "One partner from concept to production",
+    ],
+  },
   title: "Warehouse automation across the stack",
   intro:
     "Integrate. Automate. Optimize. Our team works across business systems, material handling automation, controls, and data, so every layer of your warehouse works together.",
   description:
-    "KENIS expertise across WMS and WCS platforms, conveyors and sortation, AS/RS, robotics, PLC-controlled equipment, scanners, integration, and AI analytics.",
+    "About KENIS WCS: why warehouses choose KENIS, and our expertise across WMS and WCS platforms, conveyors and sortation, AS/RS, robotics, PLC-controlled equipment, scanners, integration, and AI analytics.",
   groups: [
     {
       name: "Warehouse & enterprise systems",

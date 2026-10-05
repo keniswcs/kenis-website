@@ -19,7 +19,7 @@ export default function PlatformPage() {
   return (
     <>
       <PageHero
-        label="Integration & Orchestration Platform"
+        label="Platform"
         title={platform.title}
         intro={platform.intro}
       >

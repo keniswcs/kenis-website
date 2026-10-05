@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 export default function CapabilitiesPage() {
   return (
     <>
-      <PageHero label="Capabilities" title={capabilities.title} intro={capabilities.intro}>
+      <PageHero label="Solutions" title={capabilities.title} intro={capabilities.intro}>
         <ul className="mt-8 flex flex-wrap gap-2">
           {capabilities.services.map((s) => (
             <li key={s.id}>

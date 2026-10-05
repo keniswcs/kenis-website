@@ -1,3 +1,9 @@
+export type NavItem = {
+  label: string;
+  href: string;
+  children?: readonly { label: string; href: string; text: string }[];
+};
+
 export const site = {
   name: "KENIS WCS",
   legalName: "KENIS WCS Integrated Solutions",
@@ -15,14 +21,22 @@ export const site = {
   email: "info@keniswcs.com",
   phone: { display: "(901) 651-1909", tel: "+19016511909" },
   nav: [
-    { label: "Capabilities", href: "/capabilities" },
+    {
+      label: "Solutions",
+      href: "/capabilities",
+      children: [
+        { label: "AI Operations", href: "/ai-operations", text: "Detect, diagnose, and recover faster" },
+        { label: "Analytics", href: "/analytics", text: "Real-time UCH vs RCH on the floor" },
+        { label: "Deployment", href: "/deployment", text: "KENIS cloud, your network, or hybrid" },
+        { label: "Implementation", href: "/capabilities#wcs-implementation", text: "WCS implementation and integration" },
+        { label: "Testing", href: "/capabilities#quality-assurance", text: "Functional, end-to-end, and UAT" },
+        { label: "HyperCare", href: "/capabilities#go-live", text: "Go-live support until operations are stable" },
+      ],
+    },
     { label: "Platform", href: "/platform" },
-    { label: "Deployment", href: "/deployment" },
-    { label: "AI Operations", href: "/ai-operations" },
-    { label: "Analytics", href: "/analytics" },
-    { label: "Expertise", href: "/expertise" },
-  ],
-  contactCta: { label: "Contact us", href: "/contact" },
+    { label: "Why KENIS", href: "/expertise" },
+  ] as readonly NavItem[],
+  contactCta: { label: "Talk to our Experts", href: "/contact" },
   cta: {
     title: "Ready to integrate your warehouse stack?",
     body: "Tell us about your WMS, WCS, and automation goals. We will help you find the right approach.",
@@ -41,7 +55,7 @@ export const site = {
           "End-to-end delivery",
         ],
         flow: ["ERP", "WMS", "KENIS", "WCS", "Floor"],
-        cta: { label: "See capabilities", href: "/capabilities" },
+        cta: { label: "See solutions", href: "/capabilities" },
       },
       {
         eyebrow: "Integration & Orchestration Platform",
@@ -147,7 +161,7 @@ export const site = {
       title: "Everything you need to connect, automate, and optimize",
       cards: [
         {
-          title: "Capabilities",
+          title: "Solutions",
           body: "End-to-end services from project management and WCS integration to testing, go-live, and HyperCare.",
           href: "/capabilities",
         },
@@ -172,23 +186,11 @@ export const site = {
           href: "/analytics",
         },
         {
-          title: "Expertise",
-          body: "Warehouse systems, material handling automation, controls, and integration technologies.",
+          title: "Why KENIS",
+          body: "Who we are, why it matters, and our expertise across warehouse systems, automation, and controls.",
           href: "/expertise",
         },
       ],
-    },
-    why: {
-      eyebrow: "Why KENIS",
-      title: "Your existing technology is an investment",
-      body: "KENIS helps organizations connect existing systems, automate complex processes, identify problems faster, and improve operational visibility without unnecessary system replacement.",
-      points: [
-        "Protect existing technology investments",
-        "Reduce implementation cost and disruption",
-        "Simplify upgrades across vendors",
-        "One partner from concept to production",
-      ],
-      lifecycle: ["Plan", "Integrate", "Automate", "Test", "Launch", "Optimize"],
     },
   },
 } as const;

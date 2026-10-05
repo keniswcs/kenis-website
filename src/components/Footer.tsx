@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-steel/25 bg-ink py-14">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 sm:grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <Link href="/" className="flex items-center gap-3">
             <Image
@@ -25,16 +25,40 @@ export function Footer() {
           <p className="mt-1 max-w-sm text-sm italic text-steel-bright">{site.vision}</p>
         </div>
 
-        <nav aria-label="Footer">
-          <p className="text-xs font-medium tracking-[0.2em] text-steel-bright uppercase">Explore</p>
+        {site.nav
+          .filter((item) => item.children)
+          .map((item) => (
+            <nav key={item.href} aria-label={`Footer ${item.label}`}>
+              <Link
+                href={item.href}
+                className="text-xs font-medium tracking-[0.2em] text-steel-bright uppercase hover:text-foam"
+              >
+                {item.label}
+              </Link>
+              <ul className="mt-4 space-y-2.5">
+                {item.children?.map((child) => (
+                  <li key={child.href}>
+                    <Link href={child.href} className="text-sm text-mist hover:text-foam">
+                      {child.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+
+        <nav aria-label="Footer company">
+          <p className="text-xs font-medium tracking-[0.2em] text-steel-bright uppercase">Company</p>
           <ul className="mt-4 space-y-2.5">
-            {site.nav.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-sm text-mist hover:text-foam">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {site.nav
+              .filter((item) => !item.children)
+              .map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-mist hover:text-foam">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </nav>
 

@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 
 export function CtaBand() {
   return (
-    <section className="border-t border-signal/25 bg-gradient-to-r from-signal/15 via-ink-raised to-ink-raised py-16 sm:py-20">
+    <section className="border-t border-signal/25 bg-gradient-to-r from-signal/15 via-ink-raised to-ink-raised py-12 sm:py-16">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 sm:px-8 md:flex-row md:items-center md:justify-between">
         <div>
           <h2 className="font-display text-2xl font-semibold tracking-tight text-foam sm:text-3xl">

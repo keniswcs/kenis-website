@@ -5,11 +5,13 @@ export function PageHero({
   label,
   title,
   intro,
+  parent,
   children,
 }: {
   label: string;
   title: string;
   intro: string;
+  parent?: { label: string; href: string };
   children?: ReactNode;
 }) {
   return (
@@ -31,6 +33,16 @@ export function PageHero({
           <span className="mx-2 text-steel" aria-hidden>
             /
           </span>
+          {parent && (
+            <>
+              <Link href={parent.href} className="text-steel-bright transition-colors hover:text-foam">
+                {parent.label}
+              </Link>
+              <span className="mx-2 text-steel" aria-hidden>
+                /
+              </span>
+            </>
+          )}
           <span className="font-medium text-signal" aria-current="page">
             {label}
           </span>
