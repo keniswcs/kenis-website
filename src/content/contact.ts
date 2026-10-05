@@ -17,6 +17,8 @@ export const contact = {
   form: {
     successTitle: "Thank you, your message has been sent",
     successBody: "A KENIS specialist will contact you by email or phone soon.",
+    requestIdLabel: "Your request ID",
+    requestIdNote: "Please quote this ID if you follow up by email or phone.",
     errorBody: "Your message could not be sent. Please try again, or contact us directly:",
   },
   nextSteps: [

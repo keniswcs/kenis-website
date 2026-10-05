@@ -6,6 +6,17 @@ import { contact } from "@/content/contact";
 
 const FORM_NAME = "contact";
 const FORM_ENDPOINT = "/__forms.html";
+// No 0/1/I/L/O/U, so IDs read back over the phone without confusion.
+const ID_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ";
+
+const idDate = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" });
+
+function newRequestId() {
+  const date = idDate.format(new Date()).replaceAll("-", "");
+  const random = crypto.getRandomValues(new Uint8Array(6));
+  const suffix = Array.from(random, (b) => ID_ALPHABET[b % ID_ALPHABET.length]).join("");
+  return `KEN-${date}-${suffix}`;
+}
 
 const fieldClass =
   "w-full rounded-sm border border-steel/40 bg-ink px-4 py-3 text-foam outline-none transition-colors focus:border-signal disabled:opacity-60";
@@ -14,6 +25,9 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [sentId, setSentId] = useState("");
+  // Kept across retries so a resend after an error does not create a second ID.
+  const pendingId = useRef<string | null>(null);
   const sentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,10 +42,12 @@ export function ContactForm() {
     const data = new FormData(form);
     const get = (key: string) => String(data.get(key) || "").trim();
 
+    const requestId = (pendingId.current ??= newRequestId());
     const company = get("company");
+    data.set("request-id", requestId);
     data.set(
       "subject",
-      `${get("topic") || "Inquiry"} from ${get("name")}${company ? ` (${company})` : ""} - keniswcs.com`,
+      `[${requestId}] ${get("topic") || "Inquiry"} from ${get("name")}${company ? ` (${company})` : ""} - keniswcs.com`,
     );
     data.set("form-name", FORM_NAME);
 
@@ -44,6 +60,8 @@ export function ContactForm() {
       });
       if (!res.ok) throw new Error(`Form submission failed: ${res.status}`);
       form.reset();
+      pendingId.current = null;
+      setSentId(requestId);
       setStatus("sent");
     } catch {
       setStatus("error");
@@ -70,6 +88,15 @@ export function ContactForm() {
         <p className="mt-2 text-sm leading-relaxed text-mist sm:text-base">
           {contact.form.successBody}
         </p>
+        <div className="mt-5 rounded-sm border border-steel/40 bg-ink/60 px-4 py-3">
+          <p className="text-xs tracking-[0.2em] text-steel-bright uppercase">
+            {contact.form.requestIdLabel}
+          </p>
+          <p className="mt-1 select-all font-mono text-lg font-semibold tracking-wider text-signal">
+            {sentId}
+          </p>
+          <p className="mt-1 text-xs text-mist">{contact.form.requestIdNote}</p>
+        </div>
         <button
           type="button"
           onClick={() => setStatus("idle")}

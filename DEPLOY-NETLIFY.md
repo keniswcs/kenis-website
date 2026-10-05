@@ -68,7 +68,8 @@ How it is wired:
 
 - `public/__forms.html` is a hidden copy of the form that Netlify detects at deploy time.
 - `src/components/ContactForm.tsx` posts the fields to `/__forms.html` with `form-name=contact`. Field names in both files must match.
-- Fields: name, email, phone, company, topic, message, plus `subject` (built automatically, used as the email subject) and a hidden `bot-field` spam trap.
+- Fields: name, email, phone, company, topic, message, plus `subject` (built automatically, used as the email subject), `request-id`, and a hidden `bot-field` spam trap.
+- Every submission gets a request ID such as `KEN-20261004-7F3K9Q` (date in US Central time plus six random characters). It starts the email subject, appears as the `request-id` field in the email and under **Forms > contact**, and is shown to the visitor after sending so they can quote it. Search Outlook or Netlify for the ID to find a request.
 
 Setup:
 
