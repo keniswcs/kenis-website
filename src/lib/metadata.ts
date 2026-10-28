@@ -11,13 +11,24 @@ type PageSeo = {
   keywords: readonly string[];
 };
 
+/** Drops repeats regardless of case, keeping the first spelling. */
+export function uniqueKeywords(...lists: readonly (readonly string[])[]): string[] {
+  const seen = new Set<string>();
+  return lists.flat().filter((k) => {
+    const key = k.trim().toLowerCase();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 /** Child `openGraph`/`twitter` objects replace the layout's, so each page sets them in full. */
 export function pageMetadata({ title, description, path, keywords }: PageSeo): Metadata {
   const fullTitle = title ? `${title} | ${site.name}` : seo.homeTitle;
   return {
     ...(title ? { title } : {}),
     description,
-    keywords: [...keywords, ...seo.keywords],
+    keywords: uniqueKeywords(keywords, seo.keywords),
     alternates: { canonical: path },
     openGraph: {
       type: "website",
