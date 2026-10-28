@@ -6,7 +6,7 @@ Build settings and security headers live in `netlify.toml`, so Netlify needs no 
 
 ## Part 1 - Create the Netlify site (once)
 
-1. Go to [app.netlify.com](https://app.netlify.com) and **Sign up with GitHub** (use the `mathukureddy` account).
+1. Go to [app.netlify.com](https://app.netlify.com) and **Sign up with GitHub** (use the `lakku1989` account, an owner of the `keniswcs` GitHub organization).
 2. Click **Add new project > Import an existing project > GitHub**.
 3. When GitHub asks for access, choose **Only select repositories > kenis-website** and approve. (The repo is private; Netlify can only see repos you grant.)
 4. Select **kenis-website**. Check the settings Netlify reads from `netlify.toml`:

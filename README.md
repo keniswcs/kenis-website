@@ -2,7 +2,7 @@
 
 Marketing site for **[www.keniswcs.com](https://www.keniswcs.com)** — KENIS WCS Integrated Solutions.
 
-Repository: [github.com/mathukureddy/kenis-website](https://github.com/mathukureddy/kenis-website) (private)
+Repository: [github.com/keniswcs/kenis-website](https://github.com/keniswcs/kenis-website) (private, in the `keniswcs` GitHub organization)
 
 Integration & Orchestration Platform between WMS and WCS, floor operations, implementation, and AI-powered recovery.
 
@@ -43,7 +43,7 @@ kenis-website/
 ## Local development
 
 ```bash
-git clone https://github.com/mathukureddy/kenis-website.git
+git clone https://github.com/keniswcs/kenis-website.git
 cd kenis-website
 npm install
 npm run dev
