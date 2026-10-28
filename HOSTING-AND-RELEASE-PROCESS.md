@@ -29,7 +29,7 @@ Last verified: October 2, 2026.
 | --- | --- |
 | Live site | https://www.keniswcs.com (primary) |
 | Other addresses | `keniswcs.com`, `http://...` redirect to https://www.keniswcs.com |
-| Code repository | https://github.com/mathukureddy/kenis-website (private) |
+| Code repository | https://github.com/keniswcs/kenis-website (private, `keniswcs` GitHub organization) |
 | Production branch | `main` (work happens on `develop`) |
 | Hosting | Netlify project `keniswcs`, free plan; temporary address https://keniswcs.netlify.app |
 | Build | `npm run build` (Next.js static export to `out/`), Node 24, settings in `netlify.toml` |
@@ -37,7 +37,7 @@ Last verified: October 2, 2026.
 | SSL certificate | Let's Encrypt via Netlify, covers `keniswcs.com` and `www.keniswcs.com`, renews automatically |
 | Email | Microsoft 365 through GoDaddy (info@keniswcs.com) |
 | Contact form | Netlify Forms, form `contact`; each submission is emailed to info@keniswcs.com with the visitor's email as Reply-To (setup in [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md), Part 6) |
-| Netlify sign-in | "Log in with GitHub" using the `mathukureddy` account |
+| Netlify sign-in | "Log in with GitHub" using the `lakku1989` account; project `keniswcs`, linked to `keniswcs/kenis-website`, branch `main` |
 
 ## 3. DNS records in GoDaddy
 
@@ -136,6 +136,7 @@ Resolve-DnsName keniswcs.com -Type MX -Server 8.8.8.8         # keniswcs-com.mai
 | 8. HTTPS | Netlify issued a Let's Encrypt certificate for both addresses (valid until December 31, 2026, auto-renewing). |
 | 9. Redirect loop fixed | Netlify's primary domain was initially `keniswcs.com` (www redirected to it) while `netlify.toml` redirected `keniswcs.com` to www, causing "too many redirects". Fixed in [PR #4](https://github.com/mathukureddy/kenis-website/pull/4) by removing the redirect from `netlify.toml`, then setting **www.keniswcs.com as primary domain** in Netlify. |
 | 10. Final verification | `keniswcs.com` and `http://` redirect to https://www.keniswcs.com; all pages return 200; custom 404 works; security headers present; email records intact. |
+| 11. Repository and Netlify move (October 27, 2026) | Repo moved from `mathukureddy` to the `keniswcs` GitHub organization, which silently stopped Netlify deploys. A new Netlify project under `lakku1989` was linked to `keniswcs/kenis-website`; the old project was renamed and its domains removed, and the new project took the name `keniswcs` so the GoDaddy `www` record did not change. Visitor password protection was turned off and `www.keniswcs.com` set as primary domain. |
 
 ## 7. Troubleshooting
 
@@ -144,7 +145,8 @@ Resolve-DnsName keniswcs.com -Type MX -Server 8.8.8.8         # keniswcs-com.mai
 | "Too many redirects" | Primary domain and a redirect rule disagree. In Netlify, set `www.keniswcs.com` as primary domain. Do not add domain redirects to `netlify.toml`. |
 | Site shows GoDaddy "parked" page | GoDaddy A record changed back or a duplicate A record exists. Restore the records in section 3. |
 | Certificate warning | DNS not pointing to Netlify. Fix DNS, then Netlify > Domain management > HTTPS > **Verify DNS configuration** and **Provision certificate**. |
-| Change not visible after merge | Check Netlify **Deploys** for a failed build; open the log. Hard-refresh the browser (Ctrl+F5). |
+| Change not visible after merge | Check Netlify **Deploys** for a failed build; open the log. Hard-refresh the browser (Ctrl+F5). If no deploy started at all, Netlify lost its link to GitHub (for example after the repo moved): **Project configuration > Build & deploy > Repository > Link to a different repository**, and allow the Netlify GitHub app on the `keniswcs` organization. |
+| Site asks for a password (HTTP 401) | Netlify visitor access protection is on. **Project configuration > Access & security > Visitor access**: set to no protection (or non-production deploys only); also check **Team settings > Access & security**. |
 | Netlify build fails | Reproduce locally with `npm ci` and `npm run build`, fix on `develop`, and merge again. The live site keeps the last good version until a build succeeds. |
 | Email stopped working | An email DNS record was removed or edited. Restore the records in section 3, or use GoDaddy's email setup tool for Microsoft 365. |
 | `npm ci` fails with `EPERM` on Windows | The dev server is running and locking files. Stop it and rerun. |
@@ -179,7 +181,7 @@ New sites usually appear in Google within a few days to a few weeks. Check **Pag
 
 | System | Used for | Access |
 | --- | --- | --- |
-| GitHub `mathukureddy` | Code, pull requests | Owner account; repo is private |
+| GitHub organization `keniswcs` | Code, pull requests | Owner: `lakku1989`; repo is private |
 | Netlify | Builds and hosting | Signed in with the GitHub account; Netlify's GitHub app should have access only to `kenis-website` |
 | GoDaddy | Domain renewal, DNS, Microsoft 365 email | GoDaddy account owner |
 
