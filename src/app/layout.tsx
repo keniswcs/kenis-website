@@ -3,7 +3,7 @@ import { IBM_Plex_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 import { seo } from "@/content/seo";
-import { organizationJsonLd } from "@/lib/metadata";
+import { organizationJsonLd, uniqueKeywords } from "@/lib/metadata";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
-  keywords: [...seo.keywords],
+  keywords: uniqueKeywords(seo.keywords),
   applicationName: site.name,
   authors: [{ name: site.legalName, url: site.url }],
   creator: site.legalName,
