@@ -4,8 +4,7 @@ import "./globals.css";
 import { site } from "@/content/site";
 import { seo } from "@/content/seo";
 import { organizationJsonLd, uniqueKeywords } from "@/lib/metadata";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SiteChrome } from "@/components/SiteChrome";
 
 const display = Syne({
   variable: "--font-syne",
@@ -66,9 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
