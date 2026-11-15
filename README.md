@@ -32,9 +32,10 @@ kenis-website/
 │   │   ├── ai-operations/    # /ai-operations
 │   │   ├── analytics/        # /analytics (live UCH/RCH sample dashboard)
 │   │   ├── expertise/        # /expertise
-│   │   └── contact/          # /contact
+│   │   ├── contact/          # /contact
+│   │   └── card/             # Digital business cards + QR (/card, /card/raja, /card/chakrapani)
 │   ├── components/           # Header, footer, slideshow, shared page pieces
-│   ├── content/              # Editable copy, one file per page
+│   ├── content/              # Editable copy, one file per page (cards.ts for contacts)
 │   └── lib/                  # Shared utilities (future)
 ├── next.config.ts            # Static export configured
 └── package.json
