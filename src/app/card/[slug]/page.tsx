@@ -37,10 +37,10 @@ export default async function CardPage({ params }: { params: Promise<Params> }) 
 
   return (
     <div className="card-page min-h-full">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-4 pt-5">
+      <div className="mx-auto flex max-w-[460px] items-center justify-between px-5 pt-5">
         <Link
           href="/card/"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--card-muted)] no-underline hover:text-[var(--card-ink)]"
+          className="text-xs font-semibold uppercase tracking-[0.2em] text-white/55 no-underline hover:text-white"
         >
           All cards
         </Link>

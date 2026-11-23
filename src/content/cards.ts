@@ -2,6 +2,8 @@ export type BusinessCard = {
   slug: string;
   name: string;
   title: string;
+  /** Shown after title in the page header, e.g. "Warehouse systems integration". */
+  tagline?: string;
   phone: { display: string; tel: string };
   website: { display: string; href: string };
   email?: string;
@@ -14,8 +16,10 @@ export const cards: readonly BusinessCard[] = [
     slug: "raja",
     name: "Raja Thurairajah",
     title: "CEO",
+    tagline: "Warehouse systems integration",
     phone: { display: "(901) 651-1909", tel: "+19016511909" },
     website: { display: "www.keniswcs.com", href: "https://www.keniswcs.com" },
+    email: "Info@keniswcs.com",
     frontArt: "/images/cards/front-art.jpg",
     backArt: "/images/cards/back-art.jpg",
   },
@@ -23,8 +27,10 @@ export const cards: readonly BusinessCard[] = [
     slug: "chakrapani",
     name: "Chakrapani Reddy",
     title: "CTO",
-    phone: { display: "(214) 769-4264", tel: "+12147694264" },
+    tagline: "Warehouse systems integration",
+    phone: { display: "(945) 416-2339", tel: "+19454162339" },
     website: { display: "www.keniswcs.com", href: "https://www.keniswcs.com" },
+    email: "Info@keniswcs.com",
     frontArt: "/images/cards/front-art.jpg",
     backArt: "/images/cards/back-art.jpg",
   },
