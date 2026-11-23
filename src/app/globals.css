@@ -86,18 +86,46 @@ body {
   animation: dash 2.5s linear infinite;
 }
 
-/* Digital business cards (/card) — light surface matching printed card art */
+/* Digital business cards (/card) — dark mobile layout matching printed-card share page */
 .card-page {
-  --card-ink: #0a1a3a;
-  --card-muted: #5a6a82;
-  --card-accent: #1a6cff;
+  --card-ink: #f4f7fb;
+  --card-muted: rgba(244, 247, 251, 0.65);
+  --card-accent: #7ec8ff;
   --card-lime: #7dff4d;
+  --card-navy: #071433;
   min-height: 100%;
   background:
-    radial-gradient(1200px 500px at 10% -10%, rgba(26, 108, 255, 0.12), transparent 55%),
-    radial-gradient(900px 420px at 100% 0%, rgba(125, 255, 77, 0.1), transparent 50%),
-    linear-gradient(180deg, #f4f7fb 0%, #e8eef5 100%);
+    radial-gradient(900px 420px at 50% -5%, rgba(40, 90, 180, 0.35), transparent 55%),
+    linear-gradient(180deg, #0a1f4a 0%, #071433 45%, #050e24 100%);
   color: var(--card-ink);
+}
+
+.card-contact-now,
+.card-contact-secondary {
+  border-radius: 10px;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.card-contact-now {
+  background: #7ec8ff;
+  color: #071433;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.card-contact-secondary {
+  background: transparent;
+  color: #7ec8ff;
+  border: 1.5px solid rgba(126, 200, 255, 0.7);
+}
+
+.card-contact-now:hover,
+.card-contact-secondary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
 }
 
 .card-action {
@@ -109,13 +137,13 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: linear-gradient(100deg, #0a1a3a, #143a7a);
-  color: #fff;
+  background: #7ec8ff;
+  color: #071433;
   border: none;
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 8px 20px rgba(10, 26, 58, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card-action:hover {
@@ -123,9 +151,9 @@ body {
 }
 
 .card-action-secondary {
-  background: #fff;
-  color: var(--card-ink);
-  border: 1px solid rgba(10, 26, 58, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f7fb;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: none;
 }
 
@@ -133,11 +161,5 @@ body {
   background: transparent;
   color: var(--card-muted);
   box-shadow: none;
-  border: 1px dashed rgba(10, 26, 58, 0.18);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card-rotator {
-    transition: none !important;
-  }
+  border: 1px dashed rgba(255, 255, 255, 0.22);
 }
